@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet GPX Hover Map</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map { height: 600px; width: 100%; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- 1. Include the Leaflet GPX Plugin from CDN -->
+    <script src="https://cloudflare.com"></script>
+
+    <script>
+        const map = L.map('map').setView([51.505, -0.09], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap'
+        }).addTo(map);
+
+        // 2. Prepare the GPX Layer (but don't add it to map yet)
+        const gpxUrl = 'The_Bristol_Rally_2024.gpx'; // URL to your .gpx file
+        const gpxTrack = new L.GPX(gpxUrl, {
+            async: true,
+            polyline_options: { color: 'blue', weight: 4 }
+        });
+
+        // 3. Create the Trigger Marker
+        const marker = L.marker([51.505, -0.09]).addTo(map);
+        
+        // Text info on Click
+        marker.bindPopup("<b>Route 1</b><br>Click for details, hover to see path.");
+
+        // GPX Overlay on Hover
+        marker.on('mouseover', function() {
+            gpxTrack.addTo(map);
+        });
+
+        marker.on('mouseout', function() {
+            map.removeLayer(gpxTrack);
+        });
+    </script>
+</body>
+</html>

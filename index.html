@@ -97,8 +97,14 @@
         }
         ion-icon {
             color: #6F2DA8;
-            }
+            font-size: 32px; /* Must match your iconSize */
+            display: block;
+        }
 
+        .custom-div-icon {
+            background: none !important;
+            border: none !important;
+        }
     </style>
 </head>
 <body>
@@ -126,6 +132,8 @@
     -->
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- 1. Include the Leaflet GPX Plugin from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.2.0/gpx.js" integrity="sha512-ajVJ/Mbznhd2lAlUsjRuTlrfSG1uY6qAdD6rqDJJHwhgKhReJGwhqEcwPJo0yaF1AcyCdtZs4oKNV9g/SonrJw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
@@ -144,7 +152,7 @@
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
         const ionIcon = L.divIcon({
-        html: '<ion-icon name="location" style="font-size: 32px; color: #3880ff;"></ion-icon>',
+        html: '<ion-icon name="heart"></ion-icon>',
         className: 'custom-div-icon', // Use this to remove default Leaflet styling
         iconSize: [32, 32],          // Match this to your font-size
         iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
@@ -218,7 +226,5 @@
             })
             .catch(error => console.error('Error loading map data:', error));
     </script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

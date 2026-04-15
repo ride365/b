@@ -1,0 +1,15 @@
+[
+    {
+        "name": "The Bristol Rally 2024",
+        "coords": [51.4545, -2.5879],
+        "gpx": "The_Bristol_Rally_2024.gpx",
+        "info": "Official 2024 rally route."
+    },
+    {
+        "name": "Clifton Suspension Bridge Loop",
+        "coords": [51.4549, -2.6278],
+        "gpx": "clifton_loop.gpx",
+        "info": "Scenic city loop.",
+        "date": "2024-05-15"
+    }
+]

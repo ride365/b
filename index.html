@@ -23,27 +23,30 @@
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
 
-        // 2. Prepare the GPX Layer (but don't add it to map yet)
-        const gpxUrl = 'routes/The_Bristol_Rally_2024.gpx'; // URL to your .gpx file
-        const gpxTrack = new L.GPX(gpxUrl, {
-            async: true,
-            polyline_options: { color: 'blue', weight: 4 }
-        });
 
-        // 3. Create the Trigger Marker
-        const marker = L.marker([51.505, -0.09]).addTo(map);
-        
-        // Text info on Click
-        marker.bindPopup("<b>Route 1</b><br>Click for details, hover to see path.");
+        // Load the JSON data
+        fetch('routes.json')
+            .then(response => response.json())
+            .then(locations => {
+                locations.forEach(loc => {
+                    // Prepare GPX track (hidden)
+                    const gpxTrack = new L.GPX(loc.gpx, {
+                        async: true,
+                        marker_options: { startIconUrl: null, endIconUrl: null },
+                        polyline_options: { color: 'black', weight: 4 }
+                    });
 
-        // GPX Overlay on Hover
-        marker.on('mouseover', function() {
-            gpxTrack.addTo(map);
-        });
+                    // Create marker for this location
+                    const marker = L.marker(loc.coords).addTo(map);
+                    marker.bindPopup(`<b>${loc.name}</b><br>${loc.info}`);
 
-        marker.on('mouseout', function() {
-            map.removeLayer(gpxTrack);
-        });
+                    // Hover interactions
+                    marker.on('mouseover', () => gpxTrack.addTo(map));
+                    marker.on('mouseout', () => map.removeLayer(gpxTrack));
+                });
+            })
+            .catch(error => console.error('Error loading map data:', error));
+
     </script>
 </body>
 </html>

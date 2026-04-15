@@ -3,10 +3,20 @@
 <gpx xmlns="http://www.topografix.com/GPX/1/1" creator="bikehike.co.uk" version="1.1" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
-
-
-  <trk>
-    <name>HH Mega Route Final 2026</name>
+ <metadata>
+  <name>Haldon Heroic Mega</name>
+  <author>
+   <name>Sportiva Events</name>
+   <link href="https://sportive.com/event/haldon-heroic/"/>
+  </author>
+  <desc>The Haldon Heroic is a gravel sportive showcasing the best gravel trails in the Haldon Forest Area.</desc>
+  <link href="https://www.strava.com/routes/3479155753682200102"/>
+  <time>2026-04-12T10:00:00Z</time>
+ </metadata>
+ <trk>
+  <name>Haldon Heroic Mega</name>
+  <link href="https://www.strava.com/routes/3479155753682200102"/>
+  <type>cycling</type>
     <trkseg>
       <trkpt lat="50.643450" lon="-3.561070">
        <ele>233.6</ele>

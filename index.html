@@ -64,12 +64,34 @@
             transform: rotate(45deg); /* Un-rotate the icon */
             font-size: 18px;
         }
+
+        .filter-controls {
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+        #search-input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        #length-slider {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <div class="main-container">
         <div id="sidebar" class="sidebar">
             <h2>Routes</h2>
+            <!-- Search and Filter Inputs -->
+            <div class="filter-controls">
+                <input type="text" id="search-input" placeholder="Search by name..." onkeyup="filterRoutes()">
+                <br>
+                <label for="length-slider">Max Distance: <span id="range-val">50</span> km</label>
+                <input type="range" id="length-slider" min="0" max="100" value="100" oninput="filterRoutes()">
+            </div>
             <ul id="route-list"></ul>
         </div>
         <div id="map"></div>
@@ -97,7 +119,7 @@
             iconSize: [30, 30],
             iconAnchor: [15, 30] // Points the bottom-center of the icon to the coord
         });
-
+        let allRoutes = [];
         // Load the JSON data
         fetch('routes.json')
             .then(response => response.json())
@@ -132,10 +154,22 @@
 
                         // Function to handle the actual zooming
                         const zoomToRoute = (track) => {
-                            map.fitBounds(track.getBounds(), {
-                                padding: [20, 20],
+                            const bounds = track.getBounds();
+                            const center = bounds.getCenter(); // Automatically finds the middle of the route
+
+                            // 1. Force the map to fly to the center of the route
+                            // This guarantees movement even if the point is close
+                            map.flyTo(center, 14, {
+                                animate: true,
+                                duration: 0.5 // Half a second animation
+                            });
+
+                            // 2. Adjust zoom to fit the whole path perfectly
+                            map.fitBounds(bounds, {
+                                padding: [30, 30],
                                 maxZoom: 15
                             });
+
                             marker.openPopup();
                         };
 

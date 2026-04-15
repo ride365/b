@@ -6,13 +6,31 @@
     <title>Cycle Routes</title>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"> -->
     <style>
         body {
-        background-color: hsla(64.7, 100%, 60.5%, 0.38);
+            background-color: hsla(64.7, 100%, 60.5%, 0.38);
         }
         #map { height: 600px; width: 100%; }
+        .custom-pin {
+            background-color: #e74c3c; /* Red */
+            border-radius: 50% 50% 50% 0;
+            width: 30px;
+            height: 30px;
+            transform: rotate(-45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #c0392b;
+        }
+
+        .custom-pin i {
+            color: white;
+            transform: rotate(45deg); /* Un-rotate the icon */
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -29,18 +47,18 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <!-- 1. Include the Leaflet GPX Plugin from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.2.0/gpx.js" integrity="sha512-ajVJ/Mbznhd2lAlUsjRuTlrfSG1uY6qAdD6rqDJJHwhgKhReJGwhqEcwPJo0yaF1AcyCdtZs4oKNV9g/SonrJw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.min.js"></script> -->
     <script>
         const map = L.map('map').setView([50.94,-2.56], 9);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
-
-        const redMarker = L.AwesomeMarkers.icon({
-            icon: 'bicycle',      // Ionicons icon name
-            markerColor: 'red', // Options: red, blue, green, purple, orange, etc.
-            prefix: 'glyphicon'       // Essential for Ionicons 1.5.2
+        const redMarker = L.divIcon({
+            className: 'custom-pin', // We'll style this in CSS
+            html: `<i class="ion-pizza"></i>`, // Your ionicon
+            iconSize: [30, 30],
+            iconAnchor: [15, 30] // Points the bottom-center of the icon to the coord
         });
 
         // Load the JSON data
@@ -65,7 +83,7 @@
                 });
             })
             .catch(error => console.error('Error loading map data:', error));
-
     </script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>

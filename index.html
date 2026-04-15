@@ -143,11 +143,11 @@
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
-        const redMarker = L.divIcon({
-            className: 'custom-pin', // We'll style this in CSS
-            html: `<i class="ion-pizza"></i>`, // Your ionicon
-            iconSize: [30, 30],
-            iconAnchor: [15, 30] // Points the bottom-center of the icon to the coord
+        const ionIcon = L.divIcon({
+        html: '<ion-icon name="location" style="font-size: 32px; color: #3880ff;"></ion-icon>',
+        className: 'custom-div-icon', // Use this to remove default Leaflet styling
+        iconSize: [32, 32],          // Match this to your font-size
+        iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
         });
         let allRoutes = [];
         // Load the JSON data
@@ -164,7 +164,7 @@
                     });
 
                     // Create marker for this location
-                    const marker = L.marker(loc.coords).addTo(map);
+                    const marker = L.marker(loc.coords, { icon: ionIcon }).addTo(map);
                     marker.bindPopup(`<b>${loc.name}</b><br>${loc.info}`);
 
                     // Hover interactions

@@ -1,29 +1,53 @@
 [
     {
-        "name": "The Bristol Rally 2024",
+        "name": "The Bristol Rally",
+        "author": "All Terre Adventures",
+        "author_website": "https://allterre.net/the-bristol-rally",
+        "description": "A 330km route designed to be ridden over 3 days. The route has been designed to show off some of the best gravel we have around Bristol.",
+        "link": "https://ridewithgps.com/routes/47570835",
+        "route_link": "https://www.strava.com/routes/3479177269719461002",
+        "date": "2026-06-19",
+        "type": "cycling",
         "coords": [
             51.451573,
             -2.579358
         ],
-        "gpx": "The_Bristol_Rally_2024.gpx",
-        "info": "Route extracted from GPX file."
+        "distance_km": 305.25,
+        "elevation_gain_m": 2952.0,
+        "gpx": "The_Bristol_Rally_2024.gpx"
     },
     {
-        "name": "The Woods Rat Run England ",
+        "name": "The Woods Rat Run",
+        "author": "The Woods Cyclery",
+        "author_website": "https://thewoodscyclery.co.uk/pages/the-rat-run",
+        "description": "A 24-hour challenge or chilled long-weekend tour, The Rat Run takes in the best singletrack and gravel throughout the New Forest, Purbeck and Cranbourne Chase.",
+        "link": "https://www.strava.com/routes/3479181018858355718",
+        "route_link": "https://www.strava.com/routes/3479181018858355718",
+        "date": null,
+        "type": "cycling",
         "coords": [
             50.87239,
             -1.57371
         ],
-        "gpx": "The_Woods_Rat_Run_England_.gpx",
-        "info": "Route extracted from GPX file."
+        "distance_km": 256.3,
+        "elevation_gain_m": 2445.0,
+        "gpx": "The_Woods_Rat_Run_England_.gpx"
     },
     {
-        "name": "HH Mega Route Final 2026",
+        "name": "Haldon Heroic Mega",
+        "author": "Sportiva Events",
+        "author_website": "https://sportive.com/event/haldon-heroic/",
+        "description": "The Haldon Heroic is a gravel sportive showcasing the best gravel trails in the Haldon Forest Area.",
+        "link": "https://www.strava.com/routes/3479155753682200102",
+        "route_link": "https://www.strava.com/routes/3479155753682200102",
+        "date": "2026-04-12",
+        "type": "cycling",
         "coords": [
             50.64345,
             -3.56107
         ],
-        "gpx": "HH_Mega_Route_Final_2026.gpx",
-        "info": "Route extracted from GPX file."
+        "distance_km": 91.6,
+        "elevation_gain_m": 1648.0,
+        "gpx": "HH_Mega_Route_Final_2026.gpx"
     }
 ]

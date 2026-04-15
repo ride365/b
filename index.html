@@ -16,12 +16,14 @@
 </head>
 <body>
     <div id="map"></div>
+    <!-- 
     # Get distance from all gpx files and add to json
     # Add filter for distance and date
     # Add meta data to gpx files - website, date, strava link, etc.
     # Does github pages support ? links in URIs? If so, add a ?info=clifton_loop to the url and show the info for that route on page load.
     # Tweak hover action and click action.
     # Use Leaflet group to combine close pins
+    -->
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <!-- 1. Include the Leaflet GPX Plugin from CDN -->
@@ -32,8 +34,8 @@
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
 
-        var redMarker = L.AwesomeMarkers.icon({
-            icon: 'coffee',
+        const redMarker = L.AwesomeMarkers.icon({
+            icon: 'pizza',
             markerColor: 'red'
         });
 

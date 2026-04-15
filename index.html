@@ -174,7 +174,7 @@
                     // Prepare GPX track (hidden)
                     const gpxTrack = new L.GPX(`routes/${loc.gpx}`, {
                         async: true,
-                        marker_options: { 
+                        markers: { 
                             startIcon: startIcon,
                             endIcon: endIcon,
                             shadowIcon: null },
@@ -182,7 +182,11 @@
                     });
 
                     // Create marker for this location
-                    const marker = L.marker(loc.coords, { icon: markerIcon }).addTo(map);
+                    const marker = L.marker(loc.coords, { 
+                        icon: markerIcon,
+                        zIndexOffset: 1000, // Forces it above standard map layers
+                        riseOnHover: true   // Brings it to the very front when hovered 
+                    }).addTo(map);
                     marker.bindPopup(`<b>${loc.name}</b><br>${loc.info}`);
 
                     // Hover interactions

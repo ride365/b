@@ -153,7 +153,7 @@
         iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
         });
         const startIcon = L.divIcon({
-        html: '<img src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/svg/pin-sharp.svg" style="font-size: 32px; color: green;"></ion-icon>',
+        html: '<img src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/svg/pin-sharp.svg" style="font-size: 32px; color: green;">',
         className: 'custom-div-icon', // Use this to remove default Leaflet styling
         iconSize: [32, 32],          // Match this to your font-size
         iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
@@ -174,8 +174,11 @@
                     // Prepare GPX track (hidden)
                     const gpxTrack = new L.GPX(`routes/${loc.gpx}`, {
                         async: true,
-                        marker_options: { startIcon: startIcon, endIcon: endIcon },
-                        polyline_options: { color: '#6F2DA8', weight: 4 }
+                        marker_options: { 
+                            startIcon: startIcon,
+                            endIcon: endIcon,
+                            shadowIcon: null },
+                        polyline_options: { color: '#6F2DA8', weight: 3 }
                     });
 
                     // Create marker for this location

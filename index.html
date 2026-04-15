@@ -36,7 +36,7 @@
 
         const redMarker = L.AwesomeMarkers.icon({
             icon: 'pizza',
-            markerColor: 'red'
+            prefix: 'ion',
         });
 
         // Load the JSON data
@@ -47,7 +47,7 @@
                     // Prepare GPX track (hidden)
                     const gpxTrack = new L.GPX(`routes/${loc.gpx}`, {
                         async: true,
-                        marker_options: { startIconUrl: null, endIconUrl: redMarker },
+                        marker_options: { startIcon: redMarker, markerColor: 'green', endIcon: redMarker, markerColor: 'red' },
                         polyline_options: { color: '#EE82EE', weight: 4 }
                     });
 

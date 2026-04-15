@@ -97,8 +97,6 @@
         }
         ion-icon {
             color: #6F2DA8;
-            font-size: 32px; /* Must match your iconSize */
-            display: block;
         }
 
         .custom-div-icon {
@@ -151,8 +149,20 @@
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
-        const ionIcon = L.divIcon({
-        html: '<ion-icon name="heart"></ion-icon>',
+        const markerIcon = L.divIcon({
+        html: '<ion-icon name="location-sharp" style="font-size: 32px; color: #6F2DA8;"></ion-icon>',
+        className: 'custom-div-icon', // Use this to remove default Leaflet styling
+        iconSize: [32, 32],          // Match this to your font-size
+        iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
+        });
+        const startIcon = L.divIcon({
+        html: '<ion-icon name="pin-sharp" style="font-size: 32px; color: green;"></ion-icon>',
+        className: 'custom-div-icon', // Use this to remove default Leaflet styling
+        iconSize: [32, 32],          // Match this to your font-size
+        iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
+        });
+        const endIcon = L.divIcon({
+        html: '<ion-icon name="pin-sharp" style="font-size: 32px; color: red;"></ion-icon>',
         className: 'custom-div-icon', // Use this to remove default Leaflet styling
         iconSize: [32, 32],          // Match this to your font-size
         iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
@@ -167,12 +177,12 @@
                     // Prepare GPX track (hidden)
                     const gpxTrack = new L.GPX(`routes/${loc.gpx}`, {
                         async: true,
-                        marker_options: { startIcon: null, endIcon: null},
+                        marker_options: { startIcon: { icon: startIcon }, endIcon: { icon: endIcon }},
                         polyline_options: { color: '#6F2DA8', weight: 4 }
                     });
 
                     // Create marker for this location
-                    const marker = L.marker(loc.coords, { icon: ionIcon }).addTo(map);
+                    const marker = L.marker(loc.coords, { icon: markerIcon }).addTo(map);
                     marker.bindPopup(`<b>${loc.name}</b><br>${loc.info}`);
 
                     // Hover interactions

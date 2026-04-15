@@ -30,7 +30,7 @@
             .then(locations => {
                 locations.forEach(loc => {
                     // Prepare GPX track (hidden)
-                    const gpxTrack = new L.GPX(loc.gpx, {
+                    const gpxTrack = new L.GPX(routes/loc.gpx, {
                         async: true,
                         marker_options: { startIconUrl: null, endIconUrl: null },
                         polyline_options: { color: 'black', weight: 4 }

@@ -82,7 +82,7 @@
         #toggle-btn {
             position: absolute;
             top: 10px;
-            left: 10px;
+            right: 10px;
             z-index: 1000; /* Ensure it stays above the map */
             padding: 10px;
             background: white;
@@ -186,7 +186,7 @@
                             // This guarantees movement even if the point is close
                             map.panTo(center, {
                                 animate: true,
-                                duration: 0.5 // Half a second animation
+                                duration: 1 // 1 second animation
                             });
 
                             // 2. Adjust zoom to fit the whole path perfectly
@@ -194,8 +194,8 @@
 
                             map.fitBounds(bounds, {
                                 // If sidebar is visible, push the route 320px to the right
-                                paddingTopLeft: isSidebarVisible ? [320, 20] : [20, 20],
-                                paddingBottomRight: [20, 20],
+                                paddingTopLeft: isSidebarVisible ? [320px, 20px] : [20px, 20px],
+                                paddingBottomRight: [20px, 20px],
                                 maxZoom: 15
                             });
 

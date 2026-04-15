@@ -127,20 +127,26 @@
                     
                     // Interaction: Clicking sidebar name zooms map and opens popup
                     listItem.onclick = () => {
-                        // 1. Add the track to the map so we can access its data
+                        // Clear previous GPX tracks
+                        map.eachLayer(layer => { if(layer instanceof L.GPX) map.removeLayer(layer); });
+
+                        // Function to handle the actual zooming
+                        const zoomToRoute = (track) => {
+                            map.fitBounds(track.getBounds(), {
+                                padding: [20, 20],
+                                maxZoom: 15
+                            });
+                            marker.openPopup();
+                        };
+
                         gpxTrack.addTo(map);
 
-                        // 2. Wait for the GPX data to be "ready" to get accurate bounds
-                        gpxTrack.on('loaded', function(e) {
-                            // 3. Zoom the map to the track's full extent
-                            map.fitBounds(e.target.getBounds(), {
-                                padding: [20, 20], // Adds a small gap so the line isn't touching the edge
-                                maxZoom: 15        // Prevents zooming in too far on very short routes
-                            });
-                            
-                            // 4. Open the marker popup automatically
-                            marker.openPopup();
-                        });
+                        // If already loaded, zoom now. Otherwise, wait for the event.
+                        if (gpxTrack.getBounds().isValid()) {
+                            zoomToRoute(gpxTrack);
+                        } else {
+                            gpxTrack.on('loaded', (e) => zoomToRoute(e.target));
+                        }
                     };
 
                     listContainer.appendChild(listItem);

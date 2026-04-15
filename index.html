@@ -95,7 +95,9 @@
             border-radius: 4px;
             cursor: pointer;
         }
-
+        ion-icon {
+            color: #6F2DA8;
+            }
 
     </style>
 </head>
@@ -103,7 +105,7 @@
     <div class="main-container">
         <button id="toggle-btn" onclick="toggleSidebar()">☰</button>
         <div id="sidebar" class="sidebar">
-            <h2>Routes</h2>
+            <h2><ion-icon name="heart"></ion-icon> Routes</h2>
             <!-- Search and Filter Inputs -->
             <div class="filter-controls">
                 <input type="text" id="search-input" placeholder="Search by name..." onkeyup="filterRoutes()">
@@ -216,5 +218,7 @@
             })
             .catch(error => console.error('Error loading map data:', error));
     </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

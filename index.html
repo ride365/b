@@ -6,18 +6,22 @@
     <title>Leaflet GPX Hover Map</title>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" />
     <style>
-        #background-color {
-            background-color: hsla(64.7, 100%, 67.5%, 0.28);
-            height: 100vh;
-            margin: 0;
+        body {
+        background-color: hsla(64.7, 100%, 60.5%, 0.38);
         }
         #map { height: 600px; width: 100%; }
     </style>
 </head>
 <body>
     <div id="map"></div>
-
+    # Get distance from all gpx files and add to json
+    # Add filter for distance and date
+    # Add meta data to gpx files - website, date, strava link, etc.
+    # Does github pages support ? links in URIs? If so, add a ?info=clifton_loop to the url and show the info for that route on page load.
+    # Tweak hover action and click action.
+    # Use Leaflet group to combine close pins
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <!-- 1. Include the Leaflet GPX Plugin from CDN -->
@@ -28,6 +32,10 @@
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
 
+        var redMarker = L.AwesomeMarkers.icon({
+            icon: 'coffee',
+            markerColor: 'red'
+        });
 
         // Load the JSON data
         fetch('routes.json')
@@ -37,7 +45,7 @@
                     // Prepare GPX track (hidden)
                     const gpxTrack = new L.GPX(`routes/${loc.gpx}`, {
                         async: true,
-                        marker_options: { startIconUrl: null, endIconUrl: null },
+                        marker_options: { startIconUrl: null, endIconUrl: redMarker },
                         polyline_options: { color: '#EE82EE', weight: 4 }
                     });
 

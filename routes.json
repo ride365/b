@@ -1,15 +1,29 @@
 [
     {
         "name": "The Bristol Rally 2024",
-        "coords": [51.4545, -2.5879],
+        "coords": [
+            51.451573,
+            -2.579358
+        ],
         "gpx": "The_Bristol_Rally_2024.gpx",
-        "info": "Official 2024 rally route."
+        "info": "Route extracted from GPX file."
     },
     {
-        "name": "Clifton Suspension Bridge Loop",
-        "coords": [51.4549, -2.6278],
-        "gpx": "clifton_loop.gpx",
-        "info": "Scenic city loop.",
-        "date": "2024-05-15"
+        "name": "The Woods Rat Run England ",
+        "coords": [
+            50.87239,
+            -1.57371
+        ],
+        "gpx": "The_Woods_Rat_Run_England_.gpx",
+        "info": "Route extracted from GPX file."
+    },
+    {
+        "name": "HH Mega Route Final 2026",
+        "coords": [
+            50.64345,
+            -3.56107
+        ],
+        "gpx": "HH_Mega_Route_Final_2026.gpx",
+        "info": "Route extracted from GPX file."
     }
 ]

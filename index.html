@@ -24,7 +24,7 @@
         }).addTo(map);
 
         // 2. Prepare the GPX Layer (but don't add it to map yet)
-        const gpxUrl = 'https://ride365.github.io/b/The_Bristol_Rally_2024.gpx'; // URL to your .gpx file
+        const gpxUrl = 'routes/The_Bristol_Rally_2024.gpx'; // URL to your .gpx file
         const gpxTrack = new L.GPX(gpxUrl, {
             async: true,
             polyline_options: { color: 'blue', weight: 4 }

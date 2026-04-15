@@ -7,6 +7,11 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
+        #background-color {
+            background-color: hsla(64.7, 100%, 67.5%, 0.28);
+            height: 100vh;
+            margin: 0;
+        }
         #map { height: 600px; width: 100%; }
     </style>
 </head>
@@ -33,7 +38,7 @@
                     const gpxTrack = new L.GPX(`routes/${loc.gpx}`, {
                         async: true,
                         marker_options: { startIconUrl: null, endIconUrl: null },
-                        polyline_options: { color: 'black', weight: 4 }
+                        polyline_options: { color: '#EE82EE', weight: 4 }
                     });
 
                     // Create marker for this location

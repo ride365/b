@@ -37,7 +37,7 @@
         /* Class to hide the sidebar */
         .sidebar-hidden {
             /* display: none !important; */
-            margin-left: -300px;
+            margin-left: -330px;
         }
         
         #map {
@@ -188,28 +188,24 @@
                         // Function to handle the actual zooming
                         const zoomToRoute = (track) => {
                             const bounds = track.getBounds();
-                            const center = bounds.getCenter(); // Automatically finds the middle of the route
+                            const sidebar = document.getElementById('sidebar');
+                            
+                            // Check if sidebar is hidden by class OR by mobile media query
+                            const isSidebarVisible = !sidebar.classList.contains('sidebar-hidden') && sidebar.offsetWidth > 0;
 
-                            // 1. Force the map to fly to the center of the route
-                            // This guarantees movement even if the point is close
-                            map.panTo(center, {
-                                animate: true,
-                                duration: 1 // 1 second animation
-                            });
-
-                            // 2. Adjust zoom to fit the whole path perfectly
-                            const isSidebarVisible = document.getElementById('sidebar').offsetWidth > 0;
-
+                            // Use fitBounds only, but with forced recalculation
                             map.fitBounds(bounds, {
-                                // If sidebar is visible, push the route 320px to the right
-                                paddingTopLeft: isSidebarVisible ? [320, 10] : [10, 10],
-                                paddingBottomRight: [10, 10],
-                                maxZoom: 15
+                                paddingTopLeft: isSidebarVisible ? [320, 20] : [20, 20],
+                                paddingBottomRight: [20, 20],
+                                maxZoom: 15,
+                                animate: true,
+                                duration: 1.0,
+                                noMoveStart: true // Prevents small jitters
                             });
 
+                            // Open popup after the map has moved
                             marker.openPopup();
                         };
-
                         gpxTrack.addTo(map);
 
                         // If already loaded, zoom now. Otherwise, wait for the event.

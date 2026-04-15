@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="http://ridewithgps.com/" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd">
   <metadata>
-    <name>The Bristol Rally 2024</name>
+    <name>The Bristol Rally</name>
     <link href="https://ridewithgps.com/routes/47570835">
       <text>The Bristol Rally 2024</text>
     </link>
+    <desc><![CDATA[The Bristol Rally 2024 route.]]></desc>
+    <type>Ride</type>
     <time>2024-07-15T09:13:21Z</time>
   </metadata>
   <trk>
-    <name>The Bristol Rally 2024 (copy)</name>
+    <name>The Bristol Rally</name>
     <trkseg>
       <trkpt lat="51.451573" lon="-2.579358">
         <ele>10.2</ele>

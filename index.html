@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaflet GPX Hover Map</title>
+    <title>Cycle Routes</title>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" />
@@ -34,9 +34,18 @@
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
 
+        // Define a Green Icon
+        const greenMarker = L.AwesomeMarkers.icon({
+            icon: 'play',
+            prefix: 'ion',
+            markerColor: 'green'
+        });
+
+        // Define a Red Icon
         const redMarker = L.AwesomeMarkers.icon({
             icon: 'pizza',
             prefix: 'ion',
+            markerColor: 'red'
         });
 
         // Load the JSON data
@@ -47,7 +56,7 @@
                     // Prepare GPX track (hidden)
                     const gpxTrack = new L.GPX(`routes/${loc.gpx}`, {
                         async: true,
-                        marker_options: { startIcon: redMarker, markerColor: 'green', endIcon: redMarker, markerColor: 'red' },
+                        marker_options: { startIcon: greenMarker, endIcon: redMarker},
                         polyline_options: { color: '#EE82EE', weight: 4 }
                     });
 

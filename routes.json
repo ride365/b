@@ -85,6 +85,23 @@
         "gpx": "The_Woods_Rat_Run_England_.gpx"
     },
     {
+        "name": "The Rebel - Stone Circle 2025",
+        "author": "Unknown",
+        "author_website": "",
+        "description": "",
+        "link": "https://ridewithgps.com/routes/51435282",
+        "route_link": "",
+        "date": "2025-06-26",
+        "type": "cycling",
+        "coords": [
+            51.09309,
+            -1.80228
+        ],
+        "distance_km": 136.56,
+        "elevation_gain_m": 1687.0,
+        "gpx": "The_Rebel_-_Stone_Circle_2025.gpx"
+    },
+    {
         "name": "Moor 2 Moor",
         "author": "Launceston Cycles",
         "author_website": "https://launcestoncycles.co.uk/product/2026-sportive/",
@@ -117,6 +134,23 @@
         "distance_km": 112.0,
         "elevation_gain_m": 2055.0,
         "gpx": "Devon_Grit.gpx"
+    },
+    {
+        "name": "The Bastard - Stone Circle 2025",
+        "author": "Unknown",
+        "author_website": "",
+        "description": "",
+        "link": "https://ridewithgps.com/routes/51421677",
+        "route_link": "",
+        "date": "2025-06-25",
+        "type": "cycling",
+        "coords": [
+            51.09312,
+            -1.80255
+        ],
+        "distance_km": 219.05,
+        "elevation_gain_m": 3049.0,
+        "gpx": "The_Bastard_-_Stone_Circle_2025.gpx"
     },
     {
         "name": "Dorset Gravel Dash 50:50 2025  (both days)",

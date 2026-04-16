@@ -132,10 +132,10 @@
             <h2><ion-icon name="heart"></ion-icon> Routes</h2>
             <!-- Search and Filter Inputs -->
             <div class="filter-controls">
-                <input type="text" id="search-input" placeholder="Search by name..." onkeyup="filterRoutes()">
+                <!--<input type="text" id="search-input" placeholder="Search by name..." onkeyup="filterRoutes()">
                 <br>
                 <label for="length-slider">Max Distance: <span id="range-val">50</span> km</label>
-                <input type="range" id="length-slider" min="0" max="100" value="100" oninput="filterRoutes()">
+                <input type="range" id="length-slider" min="0" max="100" value="100" oninput="filterRoutes()">-->
             </div>
             <ul id="route-list"></ul>
         </div>
@@ -238,6 +238,7 @@
                             map.removeLayer(activeGpxTrack);
                             activeGpxTrack = null;
                         }
+                        map.closePopup();
                         map.setView([50.94, -2.56], 9);
                         // On mobile, close sidebar after clearing for better UX
                         if (window.innerWidth < 768) toggleSidebar();
@@ -272,11 +273,16 @@
                     marker.on('click', () => loadRoute(true));
 
                     const listItem = document.createElement('li');
-                    listItem.innerHTML = `<strong>${loc.name}</strong><br><small>${loc.distance}</small>`;
+                    listItem.innerHTML = `<strong>${loc.name}</strong><br><small>${loc.distance_km} km</small>`;
                     listItem.style.cursor = "pointer";
                     listItem.style.marginBottom = "10px";
-                    listItem.onclick = () => loadRoute(true);
-                    
+                    listItem.onclick = () => {
+                        loadRoute(true); 
+                        // Give the user a split second to see the click before sidebar slides away
+                        if (window.innerWidth < 768) {
+                            setTimeout(toggleSidebar, 300);
+                        }
+                    };
                     listContainer.appendChild(listItem);
                 });
 

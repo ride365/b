@@ -17,6 +17,23 @@
         "gpx": "The_Bristol_Rally_2024.gpx"
     },
     {
+        "name": "Trans Devon",
+        "author": "Rockets & Rascals",
+        "author_website": "https://bikepacking.com/event/trans-devon-2020/",
+        "description": "3-day bikepacking trip around Devon",
+        "link": "https://ridewithgps.com/routes/45776490",
+        "route_link": "https://www.strava.com/routes/3479825953039258454",
+        "date": null,
+        "type": "cycling",
+        "coords": [
+            50.36802,
+            -4.136529
+        ],
+        "distance_km": 348.98,
+        "elevation_gain_m": 5380.0,
+        "gpx": "Trans_Devon_2024.gpx"
+    },
+    {
         "name": "The Woods Rat Run",
         "author": "The Woods Cyclery",
         "author_website": "https://thewoodscyclery.co.uk/pages/the-rat-run",
@@ -34,6 +51,23 @@
         "gpx": "The_Woods_Rat_Run_England_.gpx"
     },
     {
+        "name": "Moor 2 Moor",
+        "author": "Launceston Cycles",
+        "author_website": "https://launcestoncycles.co.uk/product/2026-sportive/",
+        "description": "The Moor 2 Moor \"Big One\u201d is the classic 124 miles (200km) Moor2Moor Challenge taking in the scenery of both Bodmin Moor and Dartmoor with a leg sapping 11,500ft (3,500m) of climbing.",
+        "link": "https://ridewithgps.com/routes/39367639",
+        "route_link": "https://www.strava.com/routes/3479799006569890246",
+        "date": "2026-05-17",
+        "type": "cycling",
+        "coords": [
+            50.63686,
+            -4.36239
+        ],
+        "distance_km": 201.84,
+        "elevation_gain_m": 3079.0,
+        "gpx": "Moor2Moor.gpx"
+    },
+    {
         "name": "Haldon Heroic Mega",
         "author": "Sportiva Events",
         "author_website": "https://sportive.com/event/haldon-heroic/",
@@ -49,5 +83,22 @@
         "distance_km": 91.6,
         "elevation_gain_m": 1648.0,
         "gpx": "HH_Mega_Route_Final_2026.gpx"
+    },
+    {
+        "name": "East Devon Trail",
+        "author": "East Devon Trail",
+        "author_website": "https://eastdevontrail.com/",
+        "description": "A 185 kilometre (115 mile) \u2013ish bikepacking route through East Devon, a rural and coastal landscape between the county\u2019s capital of Exeter and neighbouring counties of Dorset and Somerset.",
+        "link": "https://ridewithgps.com/routes/39372682",
+        "route_link": "https://www.strava.com/routes/3479808500699144752",
+        "date": null,
+        "type": "cycling",
+        "coords": [
+            50.729061,
+            -3.54311
+        ],
+        "distance_km": 182.03,
+        "elevation_gain_m": 2435.0,
+        "gpx": "East_Devon_Trail.gpx"
     }
 ]

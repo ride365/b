@@ -113,3 +113,12 @@ ion-icon {
     background: none !important;
     border: none !important;
 }
+
+.event-date {
+    color: #6F2DA8;
+    font-weight: bold;
+}
+
+.leaflet-popup-content .event-date {
+        float: right;
+}

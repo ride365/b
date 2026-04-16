@@ -18,7 +18,7 @@
             <div class="filter-controls">
                 <div class="filter-controls">
                     <button onclick="sortList('name')">Sort by Name</button>
-                    <button onclick="sortList('distance')">Sort by Distance</button>
+                    <button id="dist-sort-btn" onclick="sortList('distance')">Sort by Distance</button>
                 </div>
                 <!--<input type="text" id="search-input" placeholder="Search by name..." onkeyup="filterRoutes()">
                 <br>
@@ -45,6 +45,7 @@
     <script>
         let allRoutes = [];
         let activeGpxTrack = null; // Track the current visible route
+        let distSortDirection = 'desc';
 
         const map = L.map('map').setView([50.94,-2.56], 9);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -102,21 +103,27 @@
 
         function sortList(criteria) {
             const list = document.getElementById('route-list');
-            const items = Array.from(list.children); // Convert NodeList to Array for sorting
+            const items = Array.from(list.children);
+            const btn = document.getElementById('dist-sort-btn'); // Add this ID to your HTML button
 
             items.sort((a, b) => {
                 if (criteria === 'name') {
-                    const nameA = a.getAttribute('data-name').toLowerCase();
-                    const nameB = b.getAttribute('data-name').toLowerCase();
-                    return nameA.localeCompare(nameB); // Alphabetical sort
-                } else {
+                    return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'));
+                } else if (criteria === 'distance') {
                     const distA = parseFloat(a.getAttribute('data-distance'));
                     const distB = parseFloat(b.getAttribute('data-distance'));
-                    return distA - distB; // Numerical sort
+                    
+                    // Flip logic based on current direction
+                    return distSortDirection === 'asc' ? distA - distB : distB - distA;
                 }
             });
 
-            // Re-append items in the new order
+            // Toggle direction and update button text for next click
+            if (criteria === 'distance') {
+                distSortDirection = distSortDirection === 'asc' ? 'desc' : 'asc';
+                btn.innerText = distSortDirection === 'asc' ? 'Sort: Longest First' : 'Sort: Shortest First';
+            }
+
             items.forEach(item => list.appendChild(item));
         }
 
@@ -127,7 +134,7 @@
             
             // Check if the date is valid and in the future
             if (!isNaN(routeDate) && routeDate > now) {
-                return `<br><span style="color: #6F2DA8; font-weight: bold;">📅 ${routeDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}</span>`;
+                return `<span class="event-date">📅 ${routeDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}</span>`;
             }
             return '';
         }

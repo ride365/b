@@ -19,32 +19,34 @@
             width: 100vw;
             overflow: hidden; /* Prevent scrollbars during animation */
         }
-
-        .sidebar {
+        /* Standard Desktop Sidebar (assuming width is 300px) */
+        #sidebar {
             width: 300px;
-            background: #f8f9fa;
-            border-right: 1px solid #ddd;
-            overflow-y: auto;
-            padding: 15px;
-            /* SMOOTH TRANSITION */
-            transition: margin-left 0.4s ease-in-out;
+            height: 100vh;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1001; /* Must be higher than Leaflet's z-index (1000) */
+            background: white;
+            transition: transform 0.4s ease;
         }
 
-        /* Class to hide the sidebar */
-        .sidebar-hidden {
-            /* display: none !important; */
-            margin-left: -330px;
-        }
-        
-        #map {
-            flex-grow: 1; /* Map takes remaining space */
-            height: 100%;
-        }
+        /* Mobile Adjustments (Phones/Tablets) */
+        @media (max-width: 768px) {
+            #sidebar {
+                width: 100%; /* Fill screen on mobile */
+                height: 40%; /* Take up bottom 40% of screen */
+                top: auto;
+                bottom: 0;
+                transform: translateY(0);
+            }
+            
+            #sidebar.sidebar-hidden {
+                transform: translateY(100%); /* Slide down to hide */
+            }
 
-        /* MOBILE VIEW: Hide sidebar if screen is less than 768px wide */
-        @media (max-width: 767px) {
-            .sidebar {
-                display: none;
+            #map {
+                height: 60% !important; /* Shrink map to fit sidebar above/below */
             }
         }
 
@@ -105,7 +107,9 @@
     <div class="main-container">
         <button id="toggle-btn" onclick="toggleSidebar()">☰</button>
         <div id="sidebar" class="sidebar">
-            <h2><ion-icon name="heart"></ion-icon> Routes</h2>
+            <h2><ion-icon name="heart"></ion-icon> Routes</h2><button id="clear-btn" style="width: 100%; padding: 10px; margin-bottom: 15px; cursor: pointer;">
+    Clear Route
+</button>
             <!-- Search and Filter Inputs -->
             <div class="filter-controls">
                 <input type="text" id="search-input" placeholder="Search by name..." onkeyup="filterRoutes()">
@@ -142,6 +146,13 @@
                 map.invalidateSize({ pan: true });
             }, 400); 
         }
+        document.getElementById('clear-btn').onclick = () => {
+        if (activeGpxTrack) {
+            map.removeLayer(activeGpxTrack);
+            activeGpxTrack = null;
+        }
+            map.setView([50.94, -2.56], 9); // Reset to original view
+        };
 
         const map = L.map('map').setView([50.94,-2.56], 9);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

@@ -80,6 +80,24 @@
 
         function loadRoute(loc, shouldZoom = false) {
             // Don't reload if this specific route is already showing
+            const zoomToTrack = (track) => {
+                const sidebar = document.getElementById('sidebar');
+                const isSidebarVisible = !sidebar.classList.contains('sidebar-hidden');
+                const isMobile = window.innerWidth < 768;
+
+                map.fitBounds(track.getBounds(), {
+                    // If mobile + visible, sidebar covers map, so add top padding
+                    // If desktop + visible, flexbox handles it, so standard padding
+                    paddingTopLeft: (isMobile && isSidebarVisible) ? [10, 50] : [50, 50],
+                    paddingBottomRight: [10, 10],
+                    maxZoom: 15,
+                    animate: true
+                });
+                
+                // Close sidebar on mobile so user can see the route they just clicked
+                if (isMobile) toggleSidebar();
+            };
+
             if (activeGpxTrack && activeGpxTrack._gpxFile === loc.gpx) {
                 if (shouldZoom) zoomToTrack(activeGpxTrack);
                 return;
@@ -134,24 +152,7 @@
                     };
 
                     // Updated zoom function for the sidebar interaction
-                    const zoomToTrack = (track) => {
-                        const sidebar = document.getElementById('sidebar');
-                        const isSidebarVisible = !sidebar.classList.contains('sidebar-hidden');
-                        const isMobile = window.innerWidth < 768;
-
-                        map.fitBounds(track.getBounds(), {
-                            // If mobile + visible, sidebar covers map, so add top padding
-                            // If desktop + visible, flexbox handles it, so standard padding
-                            paddingTopLeft: (isMobile && isSidebarVisible) ? [10, 50] : [50, 50],
-                            paddingBottomRight: [10, 10],
-                            maxZoom: 15,
-                            animate: true
-                        });
-                        
-                        // Close sidebar on mobile so user can see the route they just clicked
-                        if (isMobile) toggleSidebar();
-                    };
-
+                    
                     // --- Interaction Logic ---
                     
                     // On Desktop: Load on hover, stays visible. 

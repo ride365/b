@@ -16,6 +16,10 @@
             <h2><ion-icon name="bicycle"></ion-icon> Routes</h2>
             <!-- Search and Filter Inputs -->
             <div class="filter-controls">
+                <div class="filter-controls">
+                    <button onclick="sortList('name')">Sort by Name</button>
+                    <button onclick="sortList('distance')">Sort by Distance</button>
+                </div>
                 <!--<input type="text" id="search-input" placeholder="Search by name..." onkeyup="filterRoutes()">
                 <br>
                 <label for="length-slider">Max Distance: <span id="range-val">50</span> km</label>
@@ -96,6 +100,26 @@
             }, 400); 
         }
 
+        function sortList(criteria) {
+            const list = document.getElementById('route-list');
+            const items = Array.from(list.children); // Convert NodeList to Array for sorting
+
+            items.sort((a, b) => {
+                if (criteria === 'name') {
+                    const nameA = a.getAttribute('data-name').toLowerCase();
+                    const nameB = b.getAttribute('data-name').toLowerCase();
+                    return nameA.localeCompare(nameB); // Alphabetical sort
+                } else {
+                    const distA = parseFloat(a.getAttribute('data-distance'));
+                    const distB = parseFloat(b.getAttribute('data-distance'));
+                    return distA - distB; // Numerical sort
+                }
+            });
+
+            // Re-append items in the new order
+            items.forEach(item => list.appendChild(item));
+        }
+
         function loadRoute(loc, shouldZoom = false) {
             // Don't reload if this specific route is already showing
 
@@ -156,11 +180,8 @@
                         ${loc.author ? (loc.author_website ? '<a href="' + loc.author_website + '" target="_blank">' + loc.author + '</a><br>' : loc.author + '<br>') : ''}
                     `);
                     // --- Interaction Logic ---
-                    
-                    // On Desktop: Load on hover, stays visible. 
                     // On Mobile: First tap triggers mouseover (loads route)
                     marker.on('mouseover', () => loadRoute(loc, false));
-
                     // On Desktop & Mobile: Clicking marker or sidebar zooms in
                     marker.on('click', () => loadRoute(loc, true));
 
@@ -168,6 +189,8 @@
                     listItem.innerHTML = `<strong>${loc.name}</strong><br><small>${loc.distance_km} km</small>`;
                     listItem.style.cursor = "pointer";
                     listItem.style.marginBottom = "10px";
+                    listItem.setAttribute('data-name', loc.name);
+                    listItem.setAttribute('data-distance', loc.distance_km);
                     listItem.onclick = () => {
                         loadRoute(loc, true); 
                         // Give the user a split second to see the click before sidebar slides away
@@ -177,7 +200,12 @@
                     };
                     listContainer.appendChild(listItem);
                 });
-
+                const params = new URLSearchParams(window.location.search);
+                const routeId = params.get('info');
+                if (routeId) {
+                    const target = allLocations.find(l => l.gpx.replace('.gpx', '') === routeId);
+                    if (target) loadRoute(target, true);
+                }
             })
             .catch(error => console.error('Error loading map data:', error));
 

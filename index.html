@@ -128,8 +128,8 @@
     <div class="main-container">
         <button id="toggle-btn" onclick="toggleSidebar()">☰</button>
         <div id="sidebar" class="sidebar">
-            <button id="clear-btn">Clear View</button>
-            <h2><ion-icon name="heart"></ion-icon> Routes</h2>
+            <button id="clear-btn">Reset View</button>
+            <h2><ion-icon name="bicycle"></ion-icon> Routes</h2>
             <!-- Search and Filter Inputs -->
             <div class="filter-controls">
                 <!--<input type="text" id="search-input" placeholder="Search by name..." onkeyup="filterRoutes()">
@@ -142,12 +142,10 @@
         <div id="map"></div>
     </div>
     <!-- 
-    # Get distance from all gpx files and add to json
-    # Add filter for distance and date
-    # Does github pages support ? links in URIs? If so, add a ?info=clifton_loop to the url and show the info for that route on page load.
-    # Tweak hover action and click action.
-    # Use leaflet.markercluster to combine close pins
-    IOW Sportive, Tour of the Hills (Surrey)
+    ## Todo:
+    - Add filter for distance and date
+    - Does github pages support ? links in URIs? If so, add a ?info=clifton_loop to the url and show the info for that route on page load.
+    - Use leaflet.markercluster to combine close pins
     -->
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -206,7 +204,11 @@
                         riseOnHover: true   
                     }).addTo(map);
                     
-                    marker.bindPopup(`<b>${loc.name}</b><br>${loc.info}`);
+                    marker.bindPopup(`
+                        <b>${loc.name}</b><br>
+                        <small>${loc.distance_km} km</small><br>
+                        ${loc.description ? loc.description + '<br>' : ''
+                    }`);
 
                     // Helper to load GPX
                     const loadRoute = (shouldZoom) => {

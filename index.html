@@ -175,6 +175,30 @@
             .then(response => response.json())
             .then(locations => {
                 allLocations = locations; // Save to global variable
+
+                const now = new Date();
+
+                // Sort the array before building the sidebar
+                locations.sort((a, b) => {
+                    const dateA = a.date ? new Date(a.date) : null;
+                    const dateB = b.date ? new Date(b.date) : null;
+
+                    const isFutureA = dateA && dateA > now;
+                    const isFutureB = dateB && dateB > now;
+
+                    // 1. If one is future and the other isn't, future goes to the top
+                    if (isFutureA && !isFutureB) return -1;
+                    if (!isFutureA && isFutureB) return 1;
+
+                    // 2. If both are future, sort by date (soonest first)
+                    if (isFutureA && isFutureB) {
+                        return dateA - dateB;
+                    }
+
+                    // 3. If neither are future (or have no date), sort alphabetically by name
+                    return a.name.localeCompare(b.name);
+                });
+
                 const listContainer = document.getElementById('route-list');                
                 let activeGpxTrack = null;
 
@@ -199,7 +223,7 @@
                     marker.on('click', () => loadRoute(loc, true));
 
                     const listItem = document.createElement('li');
-                    listItem.innerHTML = `<strong>${loc.name}</strong><br><small>${loc.distance_km} km</small>`;
+                    listItem.innerHTML = `<strong>${loc.name}</strong><br><small>${loc.distance_km} km ${dateHtml ? ' | ' +dateHtml : ''}</small>`;
                     listItem.style.cursor = "pointer";
                     listItem.style.marginBottom = "10px";
                     listItem.setAttribute('data-name', loc.name);

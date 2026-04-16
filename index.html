@@ -39,6 +39,9 @@
     <!-- 1. Include the Leaflet GPX Plugin from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.2.0/gpx.js" integrity="sha512-ajVJ/Mbznhd2lAlUsjRuTlrfSG1uY6qAdD6rqDJJHwhgKhReJGwhqEcwPJo0yaF1AcyCdtZs4oKNV9g/SonrJw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        let allRoutes = [];
+        let activeGpxTrack = null; // Track the current visible route
+
         const map = L.map('map').setView([50.94,-2.56], 9);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap'
@@ -65,6 +68,24 @@
         iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
         });
 
+        const zoomToTrack = (track) => {
+            const sidebar = document.getElementById('sidebar');
+            const isSidebarVisible = !sidebar.classList.contains('sidebar-hidden');
+            const isMobile = window.innerWidth < 768;
+
+            map.fitBounds(track.getBounds(), {
+                // If mobile + visible, sidebar covers map, so add top padding
+                // If desktop + visible, flexbox handles it, so standard padding
+                paddingTopLeft: (isMobile && isSidebarVisible) ? [10, 50] : [50, 50],
+                paddingBottomRight: [10, 10],
+                maxZoom: 15,
+                animate: true
+            });
+            
+            // Close sidebar on mobile so user can see the route they just clicked
+            if (isMobile) toggleSidebar();
+        };
+
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('sidebar-hidden');
@@ -75,28 +96,9 @@
             }, 400); 
         }
 
-        let allRoutes = [];
-        let activeGpxTrack = null; // Track the current visible route
-
         function loadRoute(loc, shouldZoom = false) {
             // Don't reload if this specific route is already showing
-            const zoomToTrack = (track) => {
-                const sidebar = document.getElementById('sidebar');
-                const isSidebarVisible = !sidebar.classList.contains('sidebar-hidden');
-                const isMobile = window.innerWidth < 768;
 
-                map.fitBounds(track.getBounds(), {
-                    // If mobile + visible, sidebar covers map, so add top padding
-                    // If desktop + visible, flexbox handles it, so standard padding
-                    paddingTopLeft: (isMobile && isSidebarVisible) ? [10, 50] : [50, 50],
-                    paddingBottomRight: [10, 10],
-                    maxZoom: 15,
-                    animate: true
-                });
-                
-                // Close sidebar on mobile so user can see the route they just clicked
-                if (isMobile) toggleSidebar();
-            };
 
             if (activeGpxTrack && activeGpxTrack._gpxFile === loc.gpx) {
                 if (shouldZoom) zoomToTrack(activeGpxTrack);
@@ -118,6 +120,21 @@
             }
         }
 
+        // Clear Button Logic
+        document.getElementById('clear-btn').onclick = () => {
+            if (activeGpxTrack) {
+                map.removeLayer(activeGpxTrack);
+                activeGpxTrack = null;
+            }
+            map.closePopup();
+            map.setView([50.94, -2.56], 9);
+            // On mobile, close sidebar after clearing for better UX
+            if (window.innerWidth < 768) {
+                const sidebar = document.getElementById('sidebar');
+                if (!sidebar.classList.contains('sidebar-hidden')) toggleSidebar();
+            }
+        };
+
         fetch('routes.json')
             .then(response => response.json())
             .then(locations => {
@@ -138,21 +155,6 @@
                         ${loc.description ? loc.description + '<br>' : ''}
                         ${loc.author ? (loc.author_website ? '<a href="' + loc.author_website + '" target="_blank">' + loc.author + '</a><br>' : loc.author + '<br>') : ''}
                     `);
-
-                    // Clear Button Logic
-                    document.getElementById('clear-btn').onclick = () => {
-                        if (activeGpxTrack) {
-                            map.removeLayer(activeGpxTrack);
-                            activeGpxTrack = null;
-                        }
-                        map.closePopup();
-                        map.setView([50.94, -2.56], 9);
-                        // On mobile, close sidebar after clearing for better UX
-                        if (window.innerWidth < 768) toggleSidebar();
-                    };
-
-                    // Updated zoom function for the sidebar interaction
-                    
                     // --- Interaction Logic ---
                     
                     // On Desktop: Load on hover, stays visible. 

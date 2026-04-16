@@ -187,6 +187,23 @@
         "gpx": "The_Bastard_-_Stone_Circle_2025.gpx"
     },
     {
+        "name": "TOTH 2024",
+        "author": "Derek R",
+        "author_website": "https://www.strava.com/athletes/5283650",
+        "description": "",
+        "link": "https://www.strava.com/routes/3121735750953457084",
+        "route_link": "https://www.strava.com/routes/3121735750953457084",
+        "date": null,
+        "type": "cycling",
+        "coords": [
+            51.22044,
+            -0.46324000000000004
+        ],
+        "distance_km": 120.35,
+        "elevation_gain_m": 2175.0,
+        "gpx": "Tour_of_the_Hills_(Surrey).gpx"
+    },
+    {
         "name": "Dorset Gravel Dash 50:50 2025  (both days)",
         "author": "Unknown",
         "author_website": "",
@@ -236,6 +253,23 @@
         "distance_km": 78.34,
         "elevation_gain_m": 15.0,
         "gpx": "Great Dorset Bike Ride.gpx"
+    },
+    {
+        "name": "06/05/2018 Isle of Wight Randonee",
+        "author": "Unknown",
+        "author_website": "",
+        "description": "",
+        "link": "",
+        "route_link": "",
+        "date": "2018-05-06",
+        "type": "cycling",
+        "coords": [
+            50.70657,
+            -1.500594
+        ],
+        "distance_km": 106.88,
+        "elevation_gain_m": 1408.0,
+        "gpx": "Isle_of_Wight_Randonee.gpx"
     },
     {
         "name": "Haldon Heroic Mega",

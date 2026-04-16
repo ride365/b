@@ -34,6 +34,23 @@
         "gpx": "The_Dorset_Coast_200km_Audax.gpx"
     },
     {
+        "name": "The Old Chalk Way",
+        "author": "Unknown",
+        "author_website": "",
+        "description": "",
+        "link": "https://ridewithgps.com/routes/41333861",
+        "route_link": "",
+        "date": "2022-10-30",
+        "type": "cycling",
+        "coords": [
+            50.72201,
+            -2.93843
+        ],
+        "distance_km": 574.61,
+        "elevation_gain_m": 5294.0,
+        "gpx": "The_Old_Chalk_Way.gpx"
+    },
+    {
         "name": "Lost Lanes 06: The Thrills of the Chase",
         "author": "Unknown",
         "author_website": "",
@@ -66,6 +83,23 @@
         "distance_km": 348.98,
         "elevation_gain_m": 5380.0,
         "gpx": "Trans_Devon_2024.gpx"
+    },
+    {
+        "name": "The Westcountry Way",
+        "author": "Unknown",
+        "author_website": "",
+        "description": "",
+        "link": "https://ridewithgps.com/routes/12590232",
+        "route_link": "",
+        "date": "2016-03-14",
+        "type": "cycling",
+        "coords": [
+            50.36431,
+            -4.14187
+        ],
+        "distance_km": 187.19,
+        "elevation_gain_m": 3918.0,
+        "gpx": "The_Westcountry_Way.gpx"
     },
     {
         "name": "The Woods Rat Run",
@@ -170,6 +204,40 @@
         "gpx": "Dorset_Gravel_Dash_2025.gpx"
     },
     {
+        "name": "Cantii Way April 2022 Winchelsea loop",
+        "author": "Unknown",
+        "author_website": "",
+        "description": "",
+        "link": "https://ridewithgps.com/routes/39127329",
+        "route_link": "",
+        "date": "2022-04-19",
+        "type": "cycling",
+        "coords": [
+            51.18391,
+            0.9376
+        ],
+        "distance_km": 235.13,
+        "elevation_gain_m": 1648.0,
+        "gpx": "cycling-uk-cantii-way.gpx"
+    },
+    {
+        "name": "Great Dorset Bike Ride",
+        "author": "Unknown",
+        "author_website": "",
+        "description": "",
+        "link": "http://www.garmin.com",
+        "route_link": "",
+        "date": "2025-05-22",
+        "type": "cycling",
+        "coords": [
+            50.71536647155881,
+            -2.442743070423603
+        ],
+        "distance_km": 78.34,
+        "elevation_gain_m": 15.0,
+        "gpx": "Great Dorset Bike Ride.gpx"
+    },
+    {
         "name": "Haldon Heroic Mega",
         "author": "Sportiva Events",
         "author_website": "https://sportive.com/event/haldon-heroic/",
@@ -185,6 +253,23 @@
         "distance_km": 91.6,
         "elevation_gain_m": 1648.0,
         "gpx": "HH_Mega_Route_Final_2026.gpx"
+    },
+    {
+        "name": "west_kernow_way_official_route 4",
+        "author": "Unknown",
+        "author_website": "",
+        "description": "",
+        "link": "",
+        "route_link": "",
+        "date": null,
+        "type": "cycling",
+        "coords": [
+            50.1207752,
+            -5.5314084
+        ],
+        "distance_km": 240.62,
+        "elevation_gain_m": 0.0,
+        "gpx": "cycling-uk-west-kernow-way.gpx"
     },
     {
         "name": "East Devon Trail",

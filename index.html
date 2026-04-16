@@ -121,30 +121,6 @@
                         ${loc.author ? (loc.author_website ? '<a href="' + loc.author_website + '" target="_blank">' + loc.author + '</a><br>' : loc.author + '<br>') : ''}
                     `);
 
-                    // Helper to load GPX
-                    const loadRoute = (shouldZoom) => {
-                        // Don't reload if this specific route is already showing
-                        if (activeGpxTrack && activeGpxTrack._gpxFile === loc.gpx) {
-                            if (shouldZoom) zoomToTrack(activeGpxTrack);
-                            return;
-                        }
-
-                        if (activeGpxTrack) map.removeLayer(activeGpxTrack);
-
-                        activeGpxTrack = new L.GPX(`routes/${loc.gpx}`, {
-                            async: true,
-                            markers: { startIcon, endIcon, shadowIcon: null },
-                            polyline_options: { color: '#6F2DA8', weight: 3 }
-                        }).addTo(map);
-
-                        // Custom property to track which file is loaded
-                        activeGpxTrack._gpxFile = loc.gpx;
-
-                        if (shouldZoom) {
-                            activeGpxTrack.on('loaded', (e) => zoomToTrack(e.target));
-                        }
-                    };
-
                     // Clear Button Logic
                     document.getElementById('clear-btn').onclick = () => {
                         if (activeGpxTrack) {

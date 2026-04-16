@@ -34,7 +34,7 @@ def generate_gpx_json():
 
                         results.append({
                             "name": track.name or gpx.name or filename.replace('.gpx', ''),
-                            "author": gpx.author_name or "Unknown",
+                            "author": gpx.author_name or "",
                             "author_website": author_website,
                             "description": gpx.description or "",
                             "link": gpx.link if gpx.link else "",

@@ -1,0 +1,115 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.main-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Prevent scrollbars during animation */
+}
+
+.sidebar {
+    width: 300px;
+    background: #f8f9fa;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    padding: 15px;
+    transition: all 0.4s ease-in-out;
+    z-index: 1100; /* Sit above the map */
+}
+
+.sidebar-hidden {
+    margin-left: -330px;
+}
+
+#map {
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+}
+
+/* MOBILE FIX */
+@media (max-width: 767px) {
+    .sidebar {
+        position: fixed; /* Overlay on top of map */
+        height: 100%;
+        left: 0;
+        top: 0;
+        margin-left: 0; /* Reset desktop margin */
+        transform: translateX(0);
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    }
+
+    .sidebar-hidden {
+        margin-left: 0; /* Reset desktop behavior */
+        transform: translateX(-105%); /* Slide off-screen left */
+    }
+}
+
+/* Add styling for the Clear Button */
+#clear-btn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: #6F2DA8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.custom-pin {
+    background-color: #e74c3c; /* Red */
+    border-radius: 50% 50% 50% 0;
+    width: 30px;
+    height: 30px;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #c0392b;
+}
+
+.custom-pin i {
+    color: white;
+    transform: rotate(45deg); /* Un-rotate the icon */
+    font-size: 18px;
+}
+
+.filter-controls {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+#search-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+#length-slider {
+    width: 100%;
+}
+#toggle-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Ensure it stays above the map */
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+ion-icon {
+    color: #6F2DA8;
+}
+
+.custom-div-icon {
+    background: none !important;
+    border: none !important;
+}

@@ -6,123 +6,7 @@
     <title>Cycle Routes</title>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-
-        .main-container {
-            display: flex;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden; /* Prevent scrollbars during animation */
-        }
-
-        .sidebar {
-            width: 300px;
-            background: #f8f9fa;
-            border-right: 1px solid #ddd;
-            overflow-y: auto;
-            padding: 15px;
-            transition: all 0.4s ease-in-out;
-            z-index: 1100; /* Sit above the map */
-        }
-
-        .sidebar-hidden {
-            margin-left: -330px;
-        }
-
-        #map {
-            flex-grow: 1;
-            height: 100%;
-            width: 100%;
-        }
-
-        /* MOBILE FIX */
-        @media (max-width: 767px) {
-            .sidebar {
-                position: fixed; /* Overlay on top of map */
-                height: 100%;
-                left: 0;
-                top: 0;
-                margin-left: 0; /* Reset desktop margin */
-                transform: translateX(0);
-                box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-            }
-
-            .sidebar-hidden {
-                margin-left: 0; /* Reset desktop behavior */
-                transform: translateX(-105%); /* Slide off-screen left */
-            }
-        }
-
-        /* Add styling for the Clear Button */
-        #clear-btn {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            background: #6F2DA8;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .custom-pin {
-            background-color: #e74c3c; /* Red */
-            border-radius: 50% 50% 50% 0;
-            width: 30px;
-            height: 30px;
-            transform: rotate(-45deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #c0392b;
-        }
-
-        .custom-pin i {
-            color: white;
-            transform: rotate(45deg); /* Un-rotate the icon */
-            font-size: 18px;
-        }
-
-        .filter-controls {
-            padding-bottom: 15px;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 15px;
-        }
-        #search-input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-        #length-slider {
-            width: 100%;
-        }
-        #toggle-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 1000; /* Ensure it stays above the map */
-            padding: 8px 12px;
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        ion-icon {
-            color: #6F2DA8;
-        }
-
-        .custom-div-icon {
-            background: none !important;
-            border: none !important;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div class="main-container">
@@ -155,6 +39,32 @@
     <!-- 1. Include the Leaflet GPX Plugin from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.2.0/gpx.js" integrity="sha512-ajVJ/Mbznhd2lAlUsjRuTlrfSG1uY6qAdD6rqDJJHwhgKhReJGwhqEcwPJo0yaF1AcyCdtZs4oKNV9g/SonrJw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        const map = L.map('map').setView([50.94,-2.56], 9);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap'
+        }).addTo(map);
+
+        const markerIcon = L.divIcon({
+        html: '<ion-icon name="location-sharp" style="font-size: 32px; color: #6F2DA8;"></ion-icon>',
+        className: 'custom-div-icon', // Use this to remove default Leaflet styling
+        iconSize: [32, 32],          // Match this to your font-size
+        iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
+        });
+
+        const startIcon = L.divIcon({
+        html: '<ion-icon name="location-sharp"  style="font-size: 32px; color: green;"></ion-icon>',
+        className: 'custom-div-icon', // Use this to remove default Leaflet styling
+        iconSize: [32, 32],          // Match this to your font-size
+        iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
+        });
+        
+        const endIcon = L.divIcon({
+        html: '<ion-icon name="pin-sharp" style="font-size: 32px; color: red;"></ion-icon>',
+        className: 'custom-div-icon', // Use this to remove default Leaflet styling
+        iconSize: [32, 32],          // Match this to your font-size
+        iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
+        });
+
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('sidebar-hidden');
@@ -165,31 +75,31 @@
             }, 400); 
         }
 
-        const map = L.map('map').setView([50.94,-2.56], 9);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap'
-        }).addTo(map);
-        const markerIcon = L.divIcon({
-        html: '<ion-icon name="location-sharp" style="font-size: 32px; color: #6F2DA8;"></ion-icon>',
-        className: 'custom-div-icon', // Use this to remove default Leaflet styling
-        iconSize: [32, 32],          // Match this to your font-size
-        iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
-        });
-        const startIcon = L.divIcon({
-        html: '<ion-icon name="location-sharp"  style="font-size: 32px; color: green;"></ion-icon>',
-        className: 'custom-div-icon', // Use this to remove default Leaflet styling
-        iconSize: [32, 32],          // Match this to your font-size
-        iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
-        });
-        const endIcon = L.divIcon({
-        html: '<ion-icon name="pin-sharp" style="font-size: 32px; color: red;"></ion-icon>',
-        className: 'custom-div-icon', // Use this to remove default Leaflet styling
-        iconSize: [32, 32],          // Match this to your font-size
-        iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
-        });
         let allRoutes = [];
-        // Load the JSON data
         let activeGpxTrack = null; // Track the current visible route
+
+        function loadRoute(loc, shouldZoom = false) {
+            // Don't reload if this specific route is already showing
+            if (activeGpxTrack && activeGpxTrack._gpxFile === loc.gpx) {
+                if (shouldZoom) zoomToTrack(activeGpxTrack);
+                return;
+            }
+
+            if (activeGpxTrack) map.removeLayer(activeGpxTrack);
+
+            activeGpxTrack = new L.GPX(`routes/${loc.gpx}`, {
+                async: true,
+                markers: { startIcon, endIcon, shadowIcon: null },
+                polyline_options: { color: '#6F2DA8', weight: 3 }
+            }).addTo(map);
+
+            activeGpxTrack._gpxFile = loc.gpx;
+
+            if (shouldZoom) {
+                activeGpxTrack.on('loaded', (e) => zoomToTrack(e.target));
+            }
+        }
+
         fetch('routes.json')
             .then(response => response.json())
             .then(locations => {
@@ -208,7 +118,7 @@
                         <b>${loc.name}</b><br>
                         <small>${loc.distance_km} km | ${loc.elevation_gain_m} m</small><br>
                         ${loc.description ? loc.description + '<br>' : ''}
-                        ${loc.author ? 'By ' + (loc.author_website ? '<a href="' + loc.author_website + '" target="_blank">' + loc.author + '</a><br>' : loc.author + '<br>') : ''}
+                        ${loc.author ? (loc.author_website ? '<a href="' + loc.author_website + '" target="_blank">' + loc.author + '</a><br>' : loc.author + '<br>') : ''}
                     `);
 
                     // Helper to load GPX

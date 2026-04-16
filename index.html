@@ -26,26 +26,49 @@
             border-right: 1px solid #ddd;
             overflow-y: auto;
             padding: 15px;
-            /* SMOOTH TRANSITION */
-            transition: margin-left 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+            z-index: 1100; /* Sit above the map */
         }
 
-        /* Class to hide the sidebar */
         .sidebar-hidden {
-            /* display: none !important; */
             margin-left: -330px;
         }
-        
+
         #map {
-            flex-grow: 1; /* Map takes remaining space */
+            flex-grow: 1;
             height: 100%;
+            width: 100%;
         }
 
-        /* MOBILE VIEW: Hide sidebar if screen is less than 768px wide */
+        /* MOBILE FIX */
         @media (max-width: 767px) {
             .sidebar {
-                display: none;
+                position: fixed; /* Overlay on top of map */
+                height: 100%;
+                left: 0;
+                top: 0;
+                margin-left: 0; /* Reset desktop margin */
+                transform: translateX(0);
+                box-shadow: 2px 0 10px rgba(0,0,0,0.2);
             }
+
+            .sidebar-hidden {
+                margin-left: 0; /* Reset desktop behavior */
+                transform: translateX(-105%); /* Slide off-screen left */
+            }
+        }
+
+        /* Add styling for the Clear Button */
+        #clear-btn {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background: #6F2DA8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
         }
 
         .custom-pin {
@@ -105,9 +128,8 @@
     <div class="main-container">
         <button id="toggle-btn" onclick="toggleSidebar()">☰</button>
         <div id="sidebar" class="sidebar">
-            <h2><ion-icon name="heart"></ion-icon> Routes</h2><button id="clear-btn" style="width: 100%; padding: 10px; margin-bottom: 15px; cursor: pointer;">
-    Clear Route
-</button>
+            <button id="clear-btn">Clear View</button>
+            <h2><ion-icon name="heart"></ion-icon> Routes</h2>
             <!-- Search and Filter Inputs -->
             <div class="filter-controls">
                 <input type="text" id="search-input" placeholder="Search by name..." onkeyup="filterRoutes()">
@@ -144,13 +166,6 @@
                 map.invalidateSize({ pan: true });
             }, 400); 
         }
-        document.getElementById('clear-btn').onclick = () => {
-        if (activeGpxTrack) {
-            map.removeLayer(activeGpxTrack);
-            activeGpxTrack = null;
-        }
-            map.setView([50.94, -2.56], 9); // Reset to original view
-        };
 
         const map = L.map('map').setView([50.94,-2.56], 9);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -177,7 +192,6 @@
         let allRoutes = [];
         // Load the JSON data
         let activeGpxTrack = null; // Track the current visible route
-
         fetch('routes.json')
             .then(response => response.json())
             .then(locations => {
@@ -218,17 +232,34 @@
                         }
                     };
 
+                    // Clear Button Logic
+                    document.getElementById('clear-btn').onclick = () => {
+                        if (activeGpxTrack) {
+                            map.removeLayer(activeGpxTrack);
+                            activeGpxTrack = null;
+                        }
+                        map.setView([50.94, -2.56], 9);
+                        // On mobile, close sidebar after clearing for better UX
+                        if (window.innerWidth < 768) toggleSidebar();
+                    };
+
+                    // Updated zoom function for the sidebar interaction
                     const zoomToTrack = (track) => {
                         const sidebar = document.getElementById('sidebar');
-                        const isSidebarVisible = !sidebar.classList.contains('sidebar-hidden') && sidebar.offsetWidth > 0;
-                        
+                        const isSidebarVisible = !sidebar.classList.contains('sidebar-hidden');
+                        const isMobile = window.innerWidth < 768;
+
                         map.fitBounds(track.getBounds(), {
-                            paddingTopLeft: isSidebarVisible ? [310, 10] : [10, 10],
+                            // If mobile + visible, sidebar covers map, so add top padding
+                            // If desktop + visible, flexbox handles it, so standard padding
+                            paddingTopLeft: (isMobile && isSidebarVisible) ? [10, 50] : [50, 50],
                             paddingBottomRight: [10, 10],
                             maxZoom: 15,
                             animate: true
                         });
-                        marker.openPopup();
+                        
+                        // Close sidebar on mobile so user can see the route they just clicked
+                        if (isMobile) toggleSidebar();
                     };
 
                     // --- Interaction Logic ---

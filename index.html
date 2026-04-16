@@ -206,8 +206,9 @@
                     
                     marker.bindPopup(`
                         <b>${loc.name}</b><br>
-                        <small>${loc.distance_km} km</small><br>
+                        <small>${loc.distance_km} km | ${loc.elevation_gain_m} m</small><br>
                         ${loc.description ? loc.description + '<br>' : ''
+                        ${loc.author ? 'By ' + ${loc.author_website ? '<a href="' + loc.author_website + '" target="_blank">' + loc.author + '</a><br>' : loc.author + '<br>' : ''
                     }`);
 
                     // Helper to load GPX

@@ -17,6 +17,40 @@
         "gpx": "The_Bristol_Rally_2024.gpx"
     },
     {
+        "name": "The Dorset Coast 200km Audax",
+        "author": "Wessex Super Randonneurs",
+        "author_website": "https://wessexsr.org.uk/DC.HTML",
+        "description": "A 24-hour challenge or chilled long-weekend tour, The Rat Run takes in the best singletrack and gravel throughout the New Forest, Purbeck and Cranbourne Chase.",
+        "link": "https://ridewithgps.com/routes/50894201",
+        "route_link": "https://www.strava.com/routes/3479866328499430854",
+        "date": "2026-04-19",
+        "type": "cycling",
+        "coords": [
+            50.68202,
+            -2.12199
+        ],
+        "distance_km": 206.12,
+        "elevation_gain_m": 2871.0,
+        "gpx": "The_Dorset_Coast_200km_Audax.gpx"
+    },
+    {
+        "name": "Lost Lanes 06: The Thrills of the Chase",
+        "author": "Unknown",
+        "author_website": "",
+        "description": "",
+        "link": "",
+        "route_link": "",
+        "date": null,
+        "type": "cycling",
+        "coords": [
+            51.03449,
+            -2.27316
+        ],
+        "distance_km": 102.81,
+        "elevation_gain_m": 1269.0,
+        "gpx": "Lost_Lanes_06_The_Thrills_of_the_Chase.gpx"
+    },
+    {
         "name": "Trans Devon",
         "author": "Rockets & Rascals",
         "author_website": "https://bikepacking.com/event/trans-devon-2020/",
@@ -66,6 +100,40 @@
         "distance_km": 201.84,
         "elevation_gain_m": 3079.0,
         "gpx": "Moor2Moor.gpx"
+    },
+    {
+        "name": "Devon Grit",
+        "author": "Sportiva Events",
+        "author_website": "https://sportivaevents.clubtrac.co.uk/e/devon-grit-3114",
+        "description": "The routes are designed to be ridden on a gravel bike but a cyclocross bike or a lightweight XC mountain bike will be almost as quick.",
+        "link": "https://sportivaevents.clubtrac.co.uk/e/devon-grit-3114/route-maps",
+        "route_link": "https://www.strava.com/routes/3479181018858355718",
+        "date": "2026-08-23",
+        "type": "cycling",
+        "coords": [
+            50.62072,
+            -3.41914
+        ],
+        "distance_km": 112.0,
+        "elevation_gain_m": 2055.0,
+        "gpx": "Devon_Grit.gpx"
+    },
+    {
+        "name": "Dorset Gravel Dash 50:50 2025  (both days)",
+        "author": "Unknown",
+        "author_website": "",
+        "description": "",
+        "link": "https://ridewithgps.com/routes/50813387",
+        "route_link": "",
+        "date": "2025-05-18",
+        "type": "cycling",
+        "coords": [
+            50.597523,
+            -2.037262
+        ],
+        "distance_km": 163.34,
+        "elevation_gain_m": 2797.0,
+        "gpx": "Dorset_Gravel_Dash_2025.gpx"
     },
     {
         "name": "Haldon Heroic Mega",

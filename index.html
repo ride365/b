@@ -167,79 +167,68 @@
         });
         let allRoutes = [];
         // Load the JSON data
+        let activeGpxTrack = null; // Track the current visible route
+
         fetch('routes.json')
             .then(response => response.json())
             .then(locations => {
                 const listContainer = document.getElementById('route-list');
+                
                 locations.forEach(loc => {
-                    // Prepare GPX track (hidden)
-                    const gpxTrack = new L.GPX(`routes/${loc.gpx}`, {
-                        async: true,
-                        markers: { 
-                            startIcon: startIcon,
-                            endIcon: endIcon,
-                            shadowIcon: null },
-                        polyline_options: { color: '#6F2DA8', weight: 3 }
-                    });
-
-                    // Create marker for this location
+                    // 1. Create the marker only (no GPX loading yet)
                     const marker = L.marker(loc.coords, { 
                         icon: markerIcon,
-                        zIndexOffset: 1000, // Forces it above standard map layers
-                        riseOnHover: true   // Brings it to the very front when hovered 
+                        zIndexOffset: 1000,
+                        riseOnHover: true   
                     }).addTo(map);
                     marker.bindPopup(`<b>${loc.name}</b><br>${loc.info}`);
 
-                    // Hover interactions
-                    marker.on('mouseover', () => gpxTrack.addTo(map));
-                    marker.on('mouseout', () => map.removeLayer(gpxTrack));
+                    // 2. Function to load GPX on demand
+                    const loadAndShowRoute = (isZooming) => {
+                        // Remove existing track if there is one
+                        if (activeGpxTrack) map.removeLayer(activeGpxTrack);
 
-                    // Create Sidebar Entry
+                        activeGpxTrack = new L.GPX(`routes/${loc.gpx}`, {
+                            async: true,
+                            markers: { startIcon, endIcon, shadowIcon: null },
+                            polyline_options: { color: '#6F2DA8', weight: 3 }
+                        }).addTo(map);
+
+                        if (isZooming) {
+                            activeGpxTrack.on('loaded', (e) => {
+                                const bounds = e.target.getBounds();
+                                const sidebar = document.getElementById('sidebar');
+                                const isSidebarVisible = !sidebar.classList.contains('sidebar-hidden') && sidebar.offsetWidth > 0;
+
+                                map.fitBounds(bounds, {
+                                    paddingTopLeft: isSidebarVisible ? [310, 10] : [10, 10],
+                                    paddingBottomRight: [10, 10],
+                                    maxZoom: 15,
+                                    animate: true
+                                });
+                                marker.openPopup();
+                            });
+                        }
+                    };
+
+                    // 3. Hover interactions (Load on hover, remove on out)
+                    marker.on('mouseover', () => loadAndShowRoute(false));
+                    marker.on('mouseout', () => {
+                        if (activeGpxTrack) map.removeLayer(activeGpxTrack);
+                    });
+
+                    // 4. Sidebar/Click interaction (Load and zoom)
                     const listItem = document.createElement('li');
                     listItem.innerHTML = `<strong>${loc.name}</strong><br><small>${loc.distance}</small>`;
                     listItem.style.cursor = "pointer";
                     listItem.style.marginBottom = "10px";
                     
-                    // Interaction: Clicking sidebar name zooms map and opens popup
-                    listItem.onclick = () => {
-                        // Clear previous GPX tracks
-                        map.eachLayer(layer => { if(layer instanceof L.GPX) map.removeLayer(layer); });
-
-                        // Function to handle the actual zooming
-                        const zoomToRoute = (track) => {
-                            const bounds = track.getBounds();
-                            const sidebar = document.getElementById('sidebar');
-                            
-                            // Check if sidebar is hidden by class OR by mobile media query
-                            const isSidebarVisible = !sidebar.classList.contains('sidebar-hidden') && sidebar.offsetWidth > 0;
-
-                            // Use fitBounds only, but with forced recalculation
-                            map.fitBounds(bounds, {
-                                paddingTopLeft: isSidebarVisible ? [310, 10] : [10, 10],
-                                paddingBottomRight: [10, 10],
-                                maxZoom: 15,
-                                animate: true,
-                                duration: 1.0,
-                                noMoveStart: true // Prevents small jitters
-                            });
-
-                            // Open popup after the map has moved
-                            marker.openPopup();
-                        };
-                        gpxTrack.addTo(map);
-
-                        // If already loaded, zoom now. Otherwise, wait for the event.
-                        if (gpxTrack.getBounds().isValid()) {
-                            zoomToRoute(gpxTrack);
-                        } else {
-                            gpxTrack.on('loaded', (e) => zoomToRoute(e.target));
-                        }
-                    };
-
+                    listItem.onclick = () => loadAndShowRoute(true);
                     listContainer.appendChild(listItem);
                 });
             })
             .catch(error => console.error('Error loading map data:', error));
+
     </script>
 </body>
 </html>

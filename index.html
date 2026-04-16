@@ -103,8 +103,8 @@
         fetch('routes.json')
             .then(response => response.json())
             .then(locations => {
-                const listContainer = document.getElementById('route-list');
-                
+                allLocations = locations; // Save to global variable
+                const listContainer = document.getElementById('route-list');                
                 let activeGpxTrack = null;
 
                 locations.forEach(loc => {
@@ -156,17 +156,17 @@
                     
                     // On Desktop: Load on hover, stays visible. 
                     // On Mobile: First tap triggers mouseover (loads route)
-                    marker.on('mouseover', () => loadRoute(false));
+                    marker.on('mouseover', () => loadRoute(loc, false));
 
                     // On Desktop & Mobile: Clicking marker or sidebar zooms in
-                    marker.on('click', () => loadRoute(true));
+                    marker.on('click', () => loadRoute(loc, true));
 
                     const listItem = document.createElement('li');
                     listItem.innerHTML = `<strong>${loc.name}</strong><br><small>${loc.distance_km} km</small>`;
                     listItem.style.cursor = "pointer";
                     listItem.style.marginBottom = "10px";
                     listItem.onclick = () => {
-                        loadRoute(true); 
+                        loadRoute(loc, true); 
                         // Give the user a split second to see the click before sidebar slides away
                         if (window.innerWidth < 768) {
                             setTimeout(toggleSidebar, 300);

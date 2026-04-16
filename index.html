@@ -174,18 +174,25 @@
             .then(locations => {
                 const listContainer = document.getElementById('route-list');
                 
+                let activeGpxTrack = null;
+
                 locations.forEach(loc => {
-                    // 1. Create the marker only (no GPX loading yet)
                     const marker = L.marker(loc.coords, { 
                         icon: markerIcon,
                         zIndexOffset: 1000,
                         riseOnHover: true   
                     }).addTo(map);
+                    
                     marker.bindPopup(`<b>${loc.name}</b><br>${loc.info}`);
 
-                    // 2. Function to load GPX on demand
-                    const loadAndShowRoute = (isZooming) => {
-                        // Remove existing track if there is one
+                    // Helper to load GPX
+                    const loadRoute = (shouldZoom) => {
+                        // Don't reload if this specific route is already showing
+                        if (activeGpxTrack && activeGpxTrack._gpxFile === loc.gpx) {
+                            if (shouldZoom) zoomToTrack(activeGpxTrack);
+                            return;
+                        }
+
                         if (activeGpxTrack) map.removeLayer(activeGpxTrack);
 
                         activeGpxTrack = new L.GPX(`routes/${loc.gpx}`, {
@@ -194,38 +201,45 @@
                             polyline_options: { color: '#6F2DA8', weight: 3 }
                         }).addTo(map);
 
-                        if (isZooming) {
-                            activeGpxTrack.on('loaded', (e) => {
-                                const bounds = e.target.getBounds();
-                                const sidebar = document.getElementById('sidebar');
-                                const isSidebarVisible = !sidebar.classList.contains('sidebar-hidden') && sidebar.offsetWidth > 0;
+                        // Custom property to track which file is loaded
+                        activeGpxTrack._gpxFile = loc.gpx;
 
-                                map.fitBounds(bounds, {
-                                    paddingTopLeft: isSidebarVisible ? [310, 10] : [10, 10],
-                                    paddingBottomRight: [10, 10],
-                                    maxZoom: 15,
-                                    animate: true
-                                });
-                                marker.openPopup();
-                            });
+                        if (shouldZoom) {
+                            activeGpxTrack.on('loaded', (e) => zoomToTrack(e.target));
                         }
                     };
 
-                    // 3. Hover interactions (Load on hover, remove on out)
-                    marker.on('mouseover', () => loadAndShowRoute(false));
-                    marker.on('mouseout', () => {
-                        if (activeGpxTrack) map.removeLayer(activeGpxTrack);
-                    });
+                    const zoomToTrack = (track) => {
+                        const sidebar = document.getElementById('sidebar');
+                        const isSidebarVisible = !sidebar.classList.contains('sidebar-hidden') && sidebar.offsetWidth > 0;
+                        
+                        map.fitBounds(track.getBounds(), {
+                            paddingTopLeft: isSidebarVisible ? [310, 10] : [10, 10],
+                            paddingBottomRight: [10, 10],
+                            maxZoom: 15,
+                            animate: true
+                        });
+                        marker.openPopup();
+                    };
 
-                    // 4. Sidebar/Click interaction (Load and zoom)
+                    // --- Interaction Logic ---
+                    
+                    // On Desktop: Load on hover, stays visible. 
+                    // On Mobile: First tap triggers mouseover (loads route)
+                    marker.on('mouseover', () => loadRoute(false));
+
+                    // On Desktop & Mobile: Clicking marker or sidebar zooms in
+                    marker.on('click', () => loadRoute(true));
+
                     const listItem = document.createElement('li');
                     listItem.innerHTML = `<strong>${loc.name}</strong><br><small>${loc.distance}</small>`;
                     listItem.style.cursor = "pointer";
                     listItem.style.marginBottom = "10px";
+                    listItem.onclick = () => loadRoute(true);
                     
-                    listItem.onclick = () => loadAndShowRoute(true);
                     listContainer.appendChild(listItem);
                 });
+
             })
             .catch(error => console.error('Error loading map data:', error));
 

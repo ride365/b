@@ -120,6 +120,18 @@
             items.forEach(item => list.appendChild(item));
         }
 
+        function formatFutureDate(dateStr) {
+            if (!dateStr) return '';
+            const routeDate = new Date(dateStr);
+            const now = new Date();
+            
+            // Check if the date is valid and in the future
+            if (!isNaN(routeDate) && routeDate > now) {
+                return `<br><span style="color: #6F2DA8; font-weight: bold;">📅 ${routeDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}</span>`;
+            }
+            return '';
+        }
+
         function loadRoute(loc, shouldZoom = false) {
             // Don't reload if this specific route is already showing
 
@@ -167,6 +179,7 @@
                 let activeGpxTrack = null;
 
                 locations.forEach(loc => {
+                    const dateHtml = formatFutureDate(loc.date);
                     const marker = L.marker(loc.coords, { 
                         icon: markerIcon,
                         zIndexOffset: 1000,
@@ -174,7 +187,7 @@
                     }).addTo(map);
                     
                     marker.bindPopup(`
-                        <b>${loc.name}</b><br>
+                        <b>${loc.name}</b>${dateHtml}<br>
                         <small>${loc.distance_km} km | ${loc.elevation_gain_m} m</small><br>
                         ${loc.description ? loc.description + '<br>' : ''}
                         ${loc.author ? (loc.author_website ? '<a href="' + loc.author_website + '" target="_blank">' + loc.author + '</a><br>' : loc.author + '<br>') : ''}
@@ -191,6 +204,7 @@
                     listItem.style.marginBottom = "10px";
                     listItem.setAttribute('data-name', loc.name);
                     listItem.setAttribute('data-distance', loc.distance_km);
+                    listItem.setAttribute('data-date', loc.date || '1970-01-01');
                     listItem.onclick = () => {
                         loadRoute(loc, true); 
                         // Give the user a split second to see the click before sidebar slides away

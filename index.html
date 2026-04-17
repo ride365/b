@@ -62,7 +62,7 @@
         const markerIcon = createIcon('location-sharp', '#6F2DA8', 32);
         const startIcon  = createIcon('pin-sharp', 'green', 32);
         const endIcon    = createIcon('pin-sharp',      'red', 32);
-        const alertIcon  = createIcon('alert-circle-outline',  'orange', 32);
+        const alertIcon  = createIcon('alert-circle',  'orange', 16);
 
         const zoomToTrack = (track) => {
             const sidebar = document.getElementById('sidebar');
@@ -172,6 +172,9 @@
                 activeGpxTrack = null;
             }
             map.closePopup();
+            map.eachLayer(function (layer) {
+                if (layer.closePopup) layer.closePopup();
+            });
             map.setView([50.94, -2.56], 9);
             // On mobile, close sidebar after clearing for better UX
             if (window.innerWidth < 768) {

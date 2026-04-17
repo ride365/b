@@ -6,7 +6,7 @@ xmlns:gs="http://www.topografix.com/GPX/gpx_style/0/2"
 xmlns:gh="https://graphhopper.com/public/schema/gpx/1.1"
 xmlns:os="https://ordnancesurvey.co.uk/public/schema/route/0.1">
     <metadata>
-        <name>west_kernow_way_official_route 4</name>
+        <name>West Kernow Way</name>
         <desc></desc>
         <bounds minlat="49.9608187" minlon="-5.7126210" maxlat="50.2669186" maxlon="-5.0942719"/>
         <extensions>
@@ -216,7 +216,7 @@ xmlns:os="https://ordnancesurvey.co.uk/public/schema/route/0.1">
     </wpt>
     <wpt lat="50.1239043" lon="-5.4759448"/>
     <trk>
-        <name>west_kernow_way_official_route 4</name>
+        <name>West Kernow Way</name>
         <trkseg>
             <trkpt lat="50.1207752" lon="-5.5314084"/>
             <trkpt lat="50.1194681" lon="-5.5328680"/>

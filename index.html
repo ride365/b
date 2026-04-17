@@ -34,6 +34,9 @@
     - Add filter for distance and date
     - Does github pages support ? links in URIs? If so, add a ?info=clifton_loop to the url and show the info for that route on page load.
     - Use leaflet.markercluster to combine close pins
+    - add surface type to routes.json, added related icons and filter
+    - when clicking route in list, the popup should appear for that route
+    - when the route disappears as mouseover another route, the old popup should disappear
     -->
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -62,7 +65,7 @@
         const markerIcon = createIcon('location-sharp', '#6F2DA8', 32);
         const startIcon  = createIcon('pin-sharp', 'green', 32);
         const endIcon    = createIcon('pin-sharp',      'red', 32);
-        const alertIcon  = createIcon('alert-circle',  'orange', 16);
+        const alertIcon  = createIcon('alert-circle',  'black', 16);
 
         const zoomToTrack = (track) => {
             const sidebar = document.getElementById('sidebar');

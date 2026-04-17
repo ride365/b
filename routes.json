@@ -136,6 +136,40 @@
         "gpx": "The_Rebel_-_Stone_Circle_2025.gpx"
     },
     {
+        "name": "Wessex Gravel Epic 60",
+        "author": "",
+        "author_website": "",
+        "description": "",
+        "link": "https://ridewithgps.com/routes/46327182",
+        "route_link": "",
+        "date": "2024-04-22",
+        "type": "cycling",
+        "coords": [
+            51.18312,
+            -2.31733
+        ],
+        "distance_km": 96.81,
+        "elevation_gain_m": 1323.0,
+        "gpx": "Wessex_Gravel_Epic_60.gpx"
+    },
+    {
+        "name": "The Centurion - 100k",
+        "author": "",
+        "author_website": "",
+        "description": "",
+        "link": "https://ridewithgps.com/routes/51635140",
+        "route_link": "",
+        "date": "2025-07-09",
+        "type": "cycling",
+        "coords": [
+            51.20518,
+            -1.61337
+        ],
+        "distance_km": 96.78,
+        "elevation_gain_m": 1068.0,
+        "gpx": "The_Centurion_-_100k.gpx"
+    },
+    {
         "name": "Moor 2 Moor",
         "author": "Launceston Cycles",
         "author_website": "https://launcestoncycles.co.uk/product/2026-sportive/",
@@ -185,6 +219,23 @@
         "distance_km": 219.05,
         "elevation_gain_m": 3049.0,
         "gpx": "The_Bastard_-_Stone_Circle_2025.gpx"
+    },
+    {
+        "name": "25GG0712 The Centurion - Full Route (Final Version)",
+        "author": "",
+        "author_website": "",
+        "description": "",
+        "link": "https://ridewithgps.com/routes/51612285",
+        "route_link": "",
+        "date": "2025-07-08",
+        "type": "cycling",
+        "coords": [
+            51.20518,
+            -1.61337
+        ],
+        "distance_km": 208.18,
+        "elevation_gain_m": 2404.0,
+        "gpx": "25GG0712_The_Centurion_-_Full_Route_(Final_Version).gpx"
     },
     {
         "name": "TOTH 2024",
@@ -238,6 +289,23 @@
         "gpx": "cycling-uk-cantii-way.gpx"
     },
     {
+        "name": "Main route",
+        "author": "TrackLogs Digital Mapping",
+        "author_website": "www.tracklogs.co.uk",
+        "description": "",
+        "link": "",
+        "route_link": "",
+        "date": "2025-07-30",
+        "type": "cycling",
+        "coords": [
+            51.4568547756131,
+            -0.967200022086068
+        ],
+        "distance_km": 280.44,
+        "elevation_gain_m": 3238.0,
+        "gpx": "cycling-uk-royal-chilterns-way.gpx"
+    },
+    {
         "name": "Great Dorset Bike Ride",
         "author": "",
         "author_website": "",
@@ -253,6 +321,23 @@
         "distance_km": 78.34,
         "elevation_gain_m": 15.0,
         "gpx": "Great Dorset Bike Ride.gpx"
+    },
+    {
+        "name": "Marcher Castles Way Final",
+        "author": "",
+        "author_website": "",
+        "description": "",
+        "link": "",
+        "route_link": "",
+        "date": null,
+        "type": "cycling",
+        "coords": [
+            52.70751,
+            -2.74441
+        ],
+        "distance_km": 289.65,
+        "elevation_gain_m": 0.0,
+        "gpx": "Marcher-Castles-Way-full-route.gpx"
     },
     {
         "name": "06/05/2018 Isle of Wight Randonee",
@@ -289,7 +374,24 @@
         "gpx": "HH_Mega_Route_Final_2026.gpx"
     },
     {
-        "name": "west_kernow_way_official_route 4",
+        "name": "King Alfred's Way",
+        "author": "Cycling UK",
+        "author_website": "https://www.cyclinguk.org/routes/long-distance/king-alfreds-way",
+        "description": "Immerse yourself in 10,000 years of history by riding this 350km/217-mile loop around historic Wessex, the Anglo-Saxon kingdom of Alfred the Great",
+        "link": "",
+        "route_link": "https://www.strava.com/routes/3480140120753005798",
+        "date": null,
+        "type": "cycling",
+        "coords": [
+            51.063610000000004,
+            -1.3191000000000002
+        ],
+        "distance_km": 353.47,
+        "elevation_gain_m": 4198.0,
+        "gpx": "King Alfred's Way.gpx"
+    },
+    {
+        "name": "West Kernow Way",
         "author": "",
         "author_website": "",
         "description": "",
@@ -304,6 +406,23 @@
         "distance_km": 240.62,
         "elevation_gain_m": 0.0,
         "gpx": "cycling-uk-west-kernow-way.gpx"
+    },
+    {
+        "name": "The Headstock 200 - Official Route - 2025 (autotraced)",
+        "author": "",
+        "author_website": "",
+        "description": "",
+        "link": "https://ridewithgps.com/routes/50465294",
+        "route_link": "",
+        "date": "2025-04-24",
+        "type": "cycling",
+        "coords": [
+            51.59001,
+            -3.05426
+        ],
+        "distance_km": 208.4,
+        "elevation_gain_m": 4323.0,
+        "gpx": "The_Headstock_200_-_Official_Route_-_2025_(autotraced).gpx"
     },
     {
         "name": "East Devon Trail",

@@ -52,26 +52,17 @@
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
 
-        const markerIcon = L.divIcon({
-        html: '<ion-icon name="location-sharp" style="font-size: 32px; color: #6F2DA8;"></ion-icon>',
-        className: 'custom-div-icon', // Use this to remove default Leaflet styling
-        iconSize: [32, 32],          // Match this to your font-size
-        iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
+        const createIcon = (name, color, size) => L.divIcon({
+            html: `<ion-icon name="${name}" style="font-size: ${size}px; color: ${color};"></ion-icon>`,
+            className: 'custom-div-icon',
+            iconSize: [size, size],
+            iconAnchor: [size / 2, size]
         });
 
-        const startIcon = L.divIcon({
-        html: '<ion-icon name="location-sharp"  style="font-size: 32px; color: green;"></ion-icon>',
-        className: 'custom-div-icon', // Use this to remove default Leaflet styling
-        iconSize: [32, 32],          // Match this to your font-size
-        iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
-        });
-        
-        const endIcon = L.divIcon({
-        html: '<ion-icon name="pin-sharp" style="font-size: 32px; color: red;"></ion-icon>',
-        className: 'custom-div-icon', // Use this to remove default Leaflet styling
-        iconSize: [32, 32],          // Match this to your font-size
-        iconAnchor: [16, 32]         // Point of the icon that corresponds to marker's location
-        });
+        const markerIcon = createIcon('location-sharp', '#6F2DA8', 32);
+        const startIcon  = createIcon('pin-sharp', 'green', 32);
+        const endIcon    = createIcon('pin-sharp',      'red', 32);
+        const alertIcon  = createIcon('alert-circle-outline',  'orange', 32);
 
         const zoomToTrack = (track) => {
             const sidebar = document.getElementById('sidebar');
@@ -152,7 +143,18 @@
 
             activeGpxTrack = new L.GPX(`routes/${loc.gpx}`, {
                 async: true,
-                markers: { startIcon, endIcon, shadowIcon: null },
+                markers: { 
+                    startIcon,
+                    endIcon, 
+                    shadowIcon: null,
+                    wptIcons: {
+                        'Dot': createIcon('ellipse', 'blue'),
+                        'generic': markerIcon
+                    },
+                    pointMatchers: [
+                        { regex: /Divert/i, icon: alertIcon }
+                    ]
+                },
                 polyline_options: { color: '#6F2DA8', weight: 3 }
             }).addTo(map);
 

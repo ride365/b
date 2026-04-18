@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="http://ridewithgps.com/" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd">
   <metadata>
-    <name>The Genesis Gralloch Ultra presented by Maxxis - Official Route 2026</name>
+    <name>The Gralloch - Ultra</name>
     <link href="https://ridewithgps.com/routes/54517048">
       <text>The Genesis Gralloch Ultra presented by Maxxis - Official Route 2026</text>
     </link>
-    <time>2026-04-04T22:31:25Z</time>
+    <time>2026-05-16T09:00:00Z</time>
   </metadata>
   <wpt lat="55.21058057341201" lon="-4.7121085957723885">
     <name>Feed Zone #3</name>

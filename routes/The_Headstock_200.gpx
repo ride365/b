@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="http://ridewithgps.com/" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd">
   <metadata>
-    <name>The Headstock 200 - Official Route - 2025 (autotraced)</name>
+    <name>The Headstock 200</name>
     <link href="https://ridewithgps.com/routes/50465294">
-      <text>The Headstock 200 - Official Route - 2025 (autotraced)</text>
+      <text>The Headstock 200</text>
     </link>
     <time>2025-04-24T12:45:20Z</time>
   </metadata>
   <trk>
-    <name>The Headstock 200 - Official Route - 2025 (autotraced)</name>
+    <name>The Headstock 200</name>
     <trkseg>
       <trkpt lat="51.59001" lon="-3.05426">
         <ele>44.9</ele>

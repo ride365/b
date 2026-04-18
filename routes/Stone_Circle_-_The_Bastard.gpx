@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="http://ridewithgps.com/" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd">
   <metadata>
-    <name>The Bastard - Stone Circle 2025</name>
+    <name>Stone Circle - The Bastard</name>
     <link href="https://ridewithgps.com/routes/51421677">
       <text>The Bastard - Stone Circle 2025</text>
     </link>
-    <time>2025-06-25T22:00:27Z</time>
+    <time>2026-06-27T09:00:00Z</time>
   </metadata>
   <wpt lat="51.26152" lon="-2.14586">
     <name>Feedstation</name>

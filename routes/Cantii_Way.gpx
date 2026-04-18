@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd" version="1.1" creator="http://ridewithgps.com/">
-  <metadata>
-    <name>Cantii Way April 2022 Winchelsea loop</name>
-    <link href="https://ridewithgps.com/routes/39127329">
-      <text>Cantii Way April 2022 Winchelsea loop</text>
-    </link>
-    <time>2022-04-19T16:48:39Z</time>
-  </metadata>
-  <trk>
-    <name>Cantii Way April 2022 Winchelsea loop</name>
+ <metadata>
+  <name>Cantii Way</name>
+  <author>
+   <name>Cycling UK</name>
+   <link href="https://www.cyclinguk.org/routes/long-distance/cantii-way"/>
+  </author>
+  <desc>Taking its name from the Celtic tribe which inhabited the area during the Iron Age, the Cantii Way combines quirky coastal towns and dramatic chalk cliffs with the rolling hills of the Kent Downs Area of Outstanding Natural Beauty.</desc>
+  <link href="https://www.cyclinguk.org/routes/cantii-way-map-and-gpx"/>
+ </metadata>
+ <trk>
+  <name>Cantii Way</name>
+  <type>cycling</type>
+  <extensions>
+      <surface>gravel</surface> <!-- Examples: asphalt, gravel, dirt, ground, paved, unpaved -->
+  </extensions>
     <trkseg>
       <trkpt lat="51.18391" lon="0.9376">
         <ele>45.9</ele>

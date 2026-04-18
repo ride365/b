@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <gpx xmlns="http://www.topografix.com/GPX/1/1" creator="MapSource 6.16.3" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
-
-  <metadata>
-    <link href="http://www.garmin.com">
-      <text>Garmin International</text>
-    </link>
-    <time>2025-05-22T21:15:50Z</time>
-    <bounds maxlat="50.727689964696765" maxlon="-2.040990237146616" minlat="50.634429976344109" minlon="-2.442743070423603"/>
-  </metadata>
-
-  <trk>
-    <name>Great Dorset Bike Ride</name>
+ <metadata>
+  <name>Great Dorset Bike Ride</name>
+  <author>
+   <name>West Dorset Cycling</name>
+   <link href="https://gdbr.dorsetdirt.co.uk"/>
+  </author>
+  <desc>Generations of cyclists have ridden the Great Dorset Bike Ride on the first Sunday in June for over 40 years. We want you to enjoy it too. Everyone is welcome, families and fast roadies alike, on ebikes or manuals.</desc>
+  <link href="https://www.strava.com/routes/"/>
+  <time>2026-06-06</time>
+ </metadata>
+ <trk>
+  <name>Great Dorset Bike Ride</name>
+  <link href="https://www.strava.com/routes/"/>
+  <type>cycling</type>
+  <extensions>
+      <surface>paved</surface> <!-- Examples: asphalt, gravel, dirt, ground, paved, unpaved -->
+  </extensions>
     <trkseg>
       <trkpt lat="50.715366471558809" lon="-2.442743070423603"/>
       <trkpt lat="50.714728608727455" lon="-2.442623376846314"/>

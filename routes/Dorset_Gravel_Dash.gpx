@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="http://ridewithgps.com/" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd">
-  <metadata>
-    <name>Dorset Gravel Dash 50:50 2025  (both days)</name>
-    <link href="https://ridewithgps.com/routes/50813387">
-      <text>Dorset Gravel Dash 50:50 2025  (both days)</text>
-    </link>
-    <time>2025-05-18T08:29:41Z</time>
-  </metadata>
-  <trk>
-    <name>Dorset Gravel Dash 50:50 2025  (both days)</name>
+ <metadata>
+  <name>Dorset Gravel Dash</name>
+  <author>
+   <name>Dorset Gravel Dash</name>
+   <link href="https://dorsetgraveldash.co.uk/"/>
+  </author>
+  <desc>The original gravel and bikepacking adventure.</desc>
+  <link href="https://ridewithgps.com/routes/50813387"/>
+  <time>2026-05-23T01:15:09Z</time>
+ </metadata>
+ <trk>
+  <name>Dorset Gravel Dash</name>
+  <link href="https://www.strava.com/routes/3479181018858355718"/>
+  <type>cycling</type>
+  <extensions>
+      <surface>gravel</surface> <!-- Examples: asphalt, gravel, dirt, ground, paved, unpaved -->
+  </extensions>
     <trkseg>
       <trkpt lat="50.597523" lon="-2.037262">
         <ele>123.5</ele>

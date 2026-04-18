@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="http://ridewithgps.com/" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd">
-  <metadata>
-    <name>The Centurion - 100k</name>
-    <link href="https://ridewithgps.com/routes/51635140">
-      <text>The Centurion - 100k</text>
-    </link>
-    <time>2025-07-09T22:11:41Z</time>
-  </metadata>
+ <metadata>
+  <name>The Centurion - 100km</name>
+  <author>
+   <name>Glorious Gravel</name>
+   <link href="https://gloriousgravel.com/product/gravel-sportives/the-centurion/"/>
+  </author>
+  <desc>One of the biggest rides of the year on the best gravel in the South of England with a weekend packed full of brilliant cycling. Ride the Centurion (100km) on the tank tracks, fire roads & gravel trails of Salisbury Plain and the stunning Wiltshire countryside.</desc>
+  <link href="https://ridewithgps.com/routes/51635140"/>
+  <time>2026-07-18</time>
+ </metadata>
   <trk>
-    <name>The Centurion - 100k</name>
+  <name>The Centurion - 100km</name>
+  <link href="https://www.strava.com/routes/"/>
+  <type>cycling</type>
+  <extensions>
+      <surface>gravel</surface> <!-- Examples: asphalt, gravel, dirt, ground, paved, unpaved -->
+  </extensions>
     <trkseg>
       <trkpt lat="51.20518" lon="-1.61337">
         <ele>92.4</ele>

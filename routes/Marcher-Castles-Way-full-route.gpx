@@ -5,21 +5,16 @@ xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/
 xmlns:gs="http://www.topografix.com/GPX/gpx_style/0/2"
 xmlns:gh="https://graphhopper.com/public/schema/gpx/1.1"
 xmlns:os="https://ordnancesurvey.co.uk/public/schema/route/0.1">
-    <metadata>
-        <name>Marcher Castles Way Final</name>
-        <desc></desc>
-        <bounds minlat="52.2723500" minlon="-3.3188200" maxlat="52.7267100" maxlon="-2.4852900"/>
-        <extensions>
-            <os:version>2.0</os:version>
-            <os:point lat="52.7075100" lon="-2.7444100" type="start"/>
-            <os:point lat="52.7070000" lon="-2.7443600" type="end"/>
-            <os:activity>CYCLING_OFFROAD</os:activity>
-            <os:difficulty>UNKNOWN</os:difficulty>
-            <os:paths/>
-            <os:distance>289917.3442509</os:distance>
-            <os:elevation_ascent>5855.2100000</os:elevation_ascent>
-        </extensions>
-    </metadata>
+ <metadata>
+  <name>Marcher Castles Way</name>
+  <author>
+   <name>Cycling UK</name>
+   <link href="https://www.cyclinguk.org/routes/long-distance/marcher-castles-way"/>
+  </author>
+  <desc>A 290km/180-mile off-road adventure filled with stunning beauty and rich history of the English-Welsh border</desc>
+  <link href="https://www.cyclinguk.org/routes/marcher-castles-way-full-route"/>
+  <bounds minlat="52.2723500" minlon="-3.3188200" maxlat="52.7267100" maxlon="-2.4852900"/>
+ </metadata>
     <wpt lat="52.7075100" lon="-2.7444100">
         <name>Depart</name>
         <desc>Cross bridge and follow cycle route signs to join NCN along riverside. Follow NCN for approx 4 miles to Upton Magna</desc>
@@ -377,7 +372,11 @@ xmlns:os="https://ordnancesurvey.co.uk/public/schema/route/0.1">
     <wpt lat="52.7060600" lon="-2.7441100"/>
     <wpt lat="52.7070000" lon="-2.7443600"/>
     <trk>
-        <name>Marcher Castles Way Final</name>
+        <name>Marcher Castles Way</name>
+        <type>cycling</type>
+        <extensions>
+            <surface>offroad</surface> <!-- Examples: asphalt, gravel, dirt, ground, paved, unpaved -->
+        </extensions>
         <trkseg>
             <trkpt lat="52.7075100" lon="-2.7444100"/>
             <trkpt lat="52.7075100" lon="-2.7443900"/>

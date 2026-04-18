@@ -74,7 +74,7 @@
         "description": " The 2026 Tour of the Hills (the 44th edition run by WSCC) will once again provide a challenging opportunity to try out all the main climbs in the Surrey Hills.",
         "link": "https://www.strava.com/routes/3121735750953457084",
         "route_link": "https://www.strava.com/routes/3121735750953457084",
-        "date": null,
+        "date": "2026-08-09",
         "type": "cycling",
         "coords": [
             51.22044,
@@ -119,13 +119,13 @@
         "gpx": "The_Westcountry_Way.gpx"
     },
     {
-        "name": "The Headstock 200 - Official Route - 2025 (autotraced)",
+        "name": "The Headstock 200",
         "author": "",
         "author_website": "",
         "description": "",
         "link": "https://ridewithgps.com/routes/50465294",
         "route_link": "",
-        "date": "2025-04-24",
+        "date": "2026-05-02",
         "type": "cycling",
         "coords": [
             51.59001,
@@ -187,13 +187,30 @@
         "gpx": "Royal-Chilterns-Way.gpx"
     },
     {
+        "name": "The Centurion - Full Route",
+        "author": "Glorious Gravel",
+        "author_website": "https://gloriousgravel.com/product/gravel-sportives/the-centurion/",
+        "description": "One of the biggest rides of the year on the best gravel in the South of England with a weekend packed full of brilliant cycling. Ride the Double Centurion (217km) on the tank tracks, fire roads & gravel trails of Salisbury Plain and the stunning Wiltshire countryside.",
+        "link": "https://ridewithgps.com/routes/51612285",
+        "route_link": "",
+        "date": "2026-07-18",
+        "type": "cycling",
+        "coords": [
+            51.20518,
+            -1.61337
+        ],
+        "distance_km": 208.18,
+        "elevation_gain_m": 2404.0,
+        "gpx": "The_Centurion_-_Full_Route.gpx"
+    },
+    {
         "name": "Wessex Gravel Epic 60",
         "author": "",
         "author_website": "",
         "description": "",
         "link": "https://ridewithgps.com/routes/46327182",
         "route_link": "",
-        "date": "2024-04-22",
+        "date": "2026-05-09",
         "type": "cycling",
         "coords": [
             51.18312,
@@ -253,6 +270,23 @@
         "distance_km": 235.13,
         "elevation_gain_m": 1648.0,
         "gpx": "Cantii_Way.gpx"
+    },
+    {
+        "name": "The Centurion - 100km",
+        "author": "Glorious Gravel",
+        "author_website": "https://gloriousgravel.com/product/gravel-sportives/the-centurion/",
+        "description": "One of the biggest rides of the year on the best gravel in the South of England with a weekend packed full of brilliant cycling. Ride the Centurion (100km) on the tank tracks, fire roads & gravel trails of Salisbury Plain and the stunning Wiltshire countryside.",
+        "link": "https://ridewithgps.com/routes/51635140",
+        "route_link": "",
+        "date": "2026-07-18",
+        "type": "cycling",
+        "coords": [
+            51.20518,
+            -1.61337
+        ],
+        "distance_km": 96.78,
+        "elevation_gain_m": 1068.0,
+        "gpx": "The_Centurion_-_100k.gpx"
     },
     {
         "name": "The Fawn (Short Route) - The Gralloch Sportive 2025",

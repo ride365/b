@@ -6,16 +6,15 @@
    <name>Glorious Gravel</name>
    <link href="https://gloriousgravel.com/product/gravel-sportives/the-centurion/"/>
   </author>
-  <desc>One of the biggest rides of the year on the best gravel in the South of England with a weekend packed full of brilliant cycling. Ride the Centurion (100km) on the tank tracks, fire roads & gravel trails of Salisbury Plain and the stunning Wiltshire countryside.</desc>
+  <desc>One of the biggest rides of the year on the best gravel in the South of England with a weekend packed full of brilliant cycling. Ride the Centurion (100km) on the tank tracks, fire roads &amp; gravel trails of Salisbury Plain and the stunning Wiltshire countryside.</desc>
   <link href="https://ridewithgps.com/routes/51635140"/>
   <time>2026-07-18T09:00:00Z</time>
  </metadata>
   <trk>
   <name>The Centurion - 100km</name>
-  <link href="https://www.strava.com/routes/"/>
   <type>cycling</type>
   <extensions>
-      <surface>gravel</surface> <!-- Examples: asphalt, gravel, dirt, ground, paved, unpaved -->
+      <surface>gravel</surface>
   </extensions>
     <trkseg>
       <trkpt lat="51.20518" lon="-1.61337">

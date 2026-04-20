@@ -13,7 +13,7 @@
     <div class="main-container">
         <button id="toggle-btn" onclick="toggleSidebar()">☰</button>
         <div id="sidebar" class="sidebar">
-            <button id="clear-btn"><ion-icon name="refresh" style="font-size: 24px; color: #fff;"></ion-icon> Reset View</button>
+            <button id="clear-btn"><ion-icon name="refresh" style="color: #fff;"></ion-icon> Reset View</button>
             <h2><ion-icon name="bicycle"></ion-icon> Routes</h2>
             <!-- Search and Filter Inputs -->
             <div class="filter-controls">
@@ -83,7 +83,7 @@
             });
             
             // Close sidebar on mobile so user can see the route they just clicked
-            if (isMobile) toggleSidebar();
+            if (isMobile && isSidebarVisible) toggleSidebar();
         };
 
         function toggleSidebar() {

@@ -64,7 +64,17 @@ def generate_gpx_json():
         event_list = []
         for name, variants in events_dict.items():
             variants.sort(key=lambda x: x['distance_km'])
-            event_list.append({"event_name": name, "variants": variants})
+            
+            min_dist = variants[0]['distance_km']
+            max_dist = variants[-1]['distance_km']
+            # Only show a range if there is more than one variant
+            dist_range = f"{min_dist}km - {max_dist}km" if len(variants) > 1 else f"{min_dist}km"
+
+            event_list.append({
+                "event_name": name,
+                "distance_range": dist_range, # Store for easy display
+                "variants": variants
+            })
         final_output.append({"coords": coords, "events": event_list})
 
     with open(output_file, 'w') as f:

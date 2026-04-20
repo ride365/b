@@ -257,6 +257,10 @@
                     popupHtml += `</div>`;
                     marker.bindPopup(popupHtml);
 
+                    marker.on('mouseover', () => loadRoute(loc, false));
+                    // On Desktop & Mobile: Clicking marker or sidebar zooms in
+                    marker.on('click', () => loadRoute(loc, true));
+
                     // 3. SIDEBAR HTML: Add each event separately to the sidebar list
                     loc.events.forEach(event => {
                         const mainVariant = event.variants[0];
@@ -266,7 +270,7 @@
                         listItem.className = "route-item";
                         listItem.innerHTML = `
                             <strong>${event.event_name}</strong><br>
-                            <small>${event.variants.length} distance options | ${mainVariant.distance_km}km base</small> ${dateHtml}`;
+                            <small>${event.distance_range}</small> ${dateHtml}`;
                         
                         listItem.onclick = () => {
                             map.setView(loc.coords, 14);

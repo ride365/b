@@ -7,6 +7,7 @@
         "events": [
             {
                 "event_name": "Haldon Heroic Mega",
+                "distance_range": "91.6km",
                 "variants": [
                     {
                         "variant_label": "Haldon Heroic Mega",
@@ -34,6 +35,7 @@
         "events": [
             {
                 "event_name": "King Alfred's Way",
+                "distance_range": "353.47km",
                 "variants": [
                     {
                         "variant_label": "King Alfred's Way",
@@ -61,6 +63,7 @@
         "events": [
             {
                 "event_name": "The Old Chalk Way",
+                "distance_range": "574.61km",
                 "variants": [
                     {
                         "variant_label": "The Old Chalk Way",
@@ -88,6 +91,7 @@
         "events": [
             {
                 "event_name": "Tour of the Hills",
+                "distance_range": "120.35km",
                 "variants": [
                     {
                         "variant_label": "Tour of the Hills",
@@ -115,6 +119,7 @@
         "events": [
             {
                 "event_name": "Lost Lanes 06: The Thrills of the Chase",
+                "distance_range": "102.81km",
                 "variants": [
                     {
                         "variant_label": "Lost Lanes 06: The Thrills of the Chase",
@@ -142,6 +147,7 @@
         "events": [
             {
                 "event_name": "The Westcountry Way",
+                "distance_range": "187.19km",
                 "variants": [
                     {
                         "variant_label": "The Westcountry Way",
@@ -169,6 +175,7 @@
         "events": [
             {
                 "event_name": "The Headstock 200",
+                "distance_range": "208.4km",
                 "variants": [
                     {
                         "variant_label": "The Headstock 200",
@@ -196,6 +203,7 @@
         "events": [
             {
                 "event_name": "The Woods Rat Run",
+                "distance_range": "256.3km",
                 "variants": [
                     {
                         "variant_label": "The Woods Rat Run",
@@ -223,6 +231,7 @@
         "events": [
             {
                 "event_name": "West Kernow Way",
+                "distance_range": "240.62km",
                 "variants": [
                     {
                         "variant_label": "West Kernow Way",
@@ -250,6 +259,7 @@
         "events": [
             {
                 "event_name": "Dirty Reiver 2026",
+                "distance_range": "67.02km - 196.29km",
                 "variants": [
                     {
                         "variant_label": "v65km",
@@ -305,6 +315,7 @@
         "events": [
             {
                 "event_name": "The Gralloch",
+                "distance_range": "53.71km - 323.68km",
                 "variants": [
                     {
                         "variant_label": "The Fawn (Short Route",
@@ -360,6 +371,7 @@
         "events": [
             {
                 "event_name": "The Centurion",
+                "distance_range": "96.78km - 208.18km",
                 "variants": [
                     {
                         "variant_label": "100km",
@@ -401,6 +413,7 @@
         "events": [
             {
                 "event_name": "The Dorset Coast 200km Audax",
+                "distance_range": "206.12km",
                 "variants": [
                     {
                         "variant_label": "The Dorset Coast 200km Audax",
@@ -428,6 +441,7 @@
         "events": [
             {
                 "event_name": "Wessex Gravel Epic 60",
+                "distance_range": "96.81km",
                 "variants": [
                     {
                         "variant_label": "Wessex Gravel Epic 60",
@@ -455,6 +469,7 @@
         "events": [
             {
                 "event_name": "Grand Old Dukes",
+                "distance_range": "179.18km",
                 "variants": [
                     {
                         "variant_label": "Grand Old Dukes",
@@ -482,6 +497,7 @@
         "events": [
             {
                 "event_name": "Cantii Way",
+                "distance_range": "235.13km",
                 "variants": [
                     {
                         "variant_label": "Cantii Way",
@@ -509,6 +525,7 @@
         "events": [
             {
                 "event_name": "Moor 2 Moor",
+                "distance_range": "201.84km",
                 "variants": [
                     {
                         "variant_label": "Moor 2 Moor",
@@ -536,6 +553,7 @@
         "events": [
             {
                 "event_name": "Devon Grit",
+                "distance_range": "112.0km",
                 "variants": [
                     {
                         "variant_label": "Devon Grit",
@@ -563,6 +581,7 @@
         "events": [
             {
                 "event_name": "The Bristol Rally",
+                "distance_range": "305.25km",
                 "variants": [
                     {
                         "variant_label": "The Bristol Rally",
@@ -590,6 +609,7 @@
         "events": [
             {
                 "event_name": "Great Dorset Bike Ride",
+                "distance_range": "78.34km",
                 "variants": [
                     {
                         "variant_label": "Great Dorset Bike Ride",
@@ -609,6 +629,7 @@
             },
             {
                 "event_name": "Dorset Dirt",
+                "distance_range": "50.47km",
                 "variants": [
                     {
                         "variant_label": "Dorset Dirt",
@@ -636,6 +657,7 @@
         "events": [
             {
                 "event_name": "Stone Circle",
+                "distance_range": "136.56km - 219.05km",
                 "variants": [
                     {
                         "variant_label": "The Rebel",
@@ -677,6 +699,7 @@
         "events": [
             {
                 "event_name": "Marcher Castles Way",
+                "distance_range": "289.65km",
                 "variants": [
                     {
                         "variant_label": "Marcher Castles Way",
@@ -704,6 +727,7 @@
         "events": [
             {
                 "event_name": "Dorset Gravel Dash",
+                "distance_range": "163.34km",
                 "variants": [
                     {
                         "variant_label": "Dorset Gravel Dash",
@@ -731,6 +755,7 @@
         "events": [
             {
                 "event_name": "Isle of Wight Randonnee",
+                "distance_range": "106.88km",
                 "variants": [
                     {
                         "variant_label": "Isle of Wight Randonnee",
@@ -758,6 +783,7 @@
         "events": [
             {
                 "event_name": "Royal Chilterns Way",
+                "distance_range": "280.44km",
                 "variants": [
                     {
                         "variant_label": "Royal Chilterns Way",
@@ -785,6 +811,7 @@
         "events": [
             {
                 "event_name": "Trans Devon",
+                "distance_range": "348.98km",
                 "variants": [
                     {
                         "variant_label": "Trans Devon",
@@ -812,6 +839,7 @@
         "events": [
             {
                 "event_name": "East Devon Trail",
+                "distance_range": "182.03km",
                 "variants": [
                     {
                         "variant_label": "East Devon Trail",

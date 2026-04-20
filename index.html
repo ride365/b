@@ -13,7 +13,7 @@
     <div class="main-container">
         <button id="toggle-btn" onclick="toggleSidebar()">☰</button>
         <div id="sidebar" class="sidebar">
-            <button id="clear-btn">Reset View</button>
+            <button id="clear-btn"><ion-icon name="refresh" style="font-size: 24px; color: #fff;"></ion-icon> Reset View</button>
             <h2><ion-icon name="bicycle"></ion-icon> Routes</h2>
             <!-- Search and Filter Inputs -->
             <div class="filter-controls">
@@ -66,7 +66,7 @@
         const markerIcon = createIcon('location-sharp', '#6F2DA8', 32);
         const startIcon  = createIcon('pin-sharp', 'green', 32);
         const endIcon    = createIcon('pin-sharp',      'red', 32);
-        const alertIcon  = createIcon('alert-circle',  'black', 16);
+        const alertIcon  = createIcon('alert-circle',  'grey', 16);
 
         const zoomToTrack = (track) => {
             const sidebar = document.getElementById('sidebar');
@@ -169,6 +169,22 @@
             }
         }
 
+        function loadRouteByGpx(filename) {
+            // Find the specific route data inside your nested allLocations global
+            let foundRoute = null;
+            allLocations.forEach(loc => {
+                loc.events.forEach(event => {
+                    event.variants.forEach(v => {
+                        if (v.gpx === filename) foundRoute = v;
+                    });
+                });
+            });
+
+            if (foundRoute) {
+                loadRoute(foundRoute, true); // Use your existing loadRoute function
+            }
+        }
+
         // Clear Button Logic
         document.getElementById('clear-btn').onclick = () => {
             if (activeGpxTrack) {
@@ -191,68 +207,72 @@
             .then(response => response.json())
             .then(locations => {
                 allLocations = locations; // Save to global variable
-
                 const now = new Date();
+                const listContainer = document.getElementById('route-list');
+                listContainer.innerHTML = ''; 
 
-                // Sort the array before building the sidebar
+                // 1. SORTING: Sort by the date of the first event at each location
                 locations.sort((a, b) => {
-                    const dateA = a.date ? new Date(a.date) : null;
-                    const dateB = b.date ? new Date(b.date) : null;
-
+                    const dateA = a.events[0]?.variants[0]?.date ? new Date(a.events[0].variants[0].date) : null;
+                    const dateB = b.events[0]?.variants[0]?.date ? new Date(b.events[0].variants[0].date) : null;
                     const isFutureA = dateA && dateA > now;
                     const isFutureB = dateB && dateB > now;
 
-                    // 1. If one is future and the other isn't, future goes to the top
                     if (isFutureA && !isFutureB) return -1;
                     if (!isFutureA && isFutureB) return 1;
-
-                    // 2. If both are future, sort by date (soonest first)
-                    if (isFutureA && isFutureB) {
-                        return dateA - dateB;
-                    }
-
-                    // 3. If neither are future (or have no date), sort alphabetically by name
-                    return a.name.localeCompare(b.name);
+                    if (isFutureA && isFutureB) return dateA - dateB;
+                    return a.events[0].event_name.localeCompare(b.events[0].event_name);
                 });
 
-                const listContainer = document.getElementById('route-list');                
-                let activeGpxTrack = null;
+      
+                // let activeGpxTrack = null;
 
                 locations.forEach(loc => {
-                    const dateHtml = formatFutureDate(loc.date);
+                    
+                    //const dateHtml = formatFutureDate(loc.date);
                     const marker = L.marker(loc.coords, { 
                         icon: markerIcon,
                         zIndexOffset: 1000,
                         riseOnHover: true   
                     }).addTo(map);
                     
-                    marker.bindPopup(`
-                        <b>${loc.name}</b>${dateHtml}<br>
-                        <small>${loc.distance_km} km | ${loc.elevation_gain_m} m</small><br>
-                        ${loc.description ? loc.description + '<br>' : ''}
-                        ${loc.author ? (loc.author_website ? '<a href="' + loc.author_website + '" target="_blank">' + loc.author + '</a><br>' : loc.author + '<br>') : ''}
-                    `);
-                    // --- Interaction Logic ---
-                    // On Mobile: First tap triggers mouseover (loads route)
-                    marker.on('mouseover', () => loadRoute(loc, false));
-                    // On Desktop & Mobile: Clicking marker or sidebar zooms in
-                    marker.on('click', () => loadRoute(loc, true));
+                    // 2. POPUP HTML: Loop through Events then Variants
+                    let popupHtml = `<div style="max-height:300px; overflow-y:auto; min-width:200px;">`;
+                    
+                    loc.events.forEach(event => {
+                        popupHtml += `<div style="margin-bottom:10px; border-bottom:1px solid #eee; padding-bottom:5px;">
+                            <strong>${event.event_name}</strong><br>`;
+                        
+                        event.variants.forEach(v => {
+                            const dateHtml = formatFutureDate(v.date);
+                            popupHtml += `
+                                <div style="margin-top:4px;">
+                                    <a href="#" onclick="loadRouteByGpx('${v.gpx}'); return false;" style="text-decoration:none;">
+                                        🏃 ${v.variant_label} (${v.distance_km}km)
+                                    </a> ${dateHtml}
+                                </div>`;
+                        });
+                        popupHtml += `</div>`;
+                    });
+                    popupHtml += `</div>`;
+                    marker.bindPopup(popupHtml);
 
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `<strong>${loc.name}</strong><br><small>${loc.distance_km} km ${dateHtml ? ' | ' +dateHtml : ''}</small>`;
-                    listItem.style.cursor = "pointer";
-                    listItem.style.marginBottom = "10px";
-                    listItem.setAttribute('data-name', loc.name);
-                    listItem.setAttribute('data-distance', loc.distance_km);
-                    listItem.setAttribute('data-date', loc.date || '1970-01-01');
-                    listItem.onclick = () => {
-                        loadRoute(loc, true); 
-                        // Give the user a split second to see the click before sidebar slides away
-                        if (window.innerWidth < 768) {
-                            setTimeout(toggleSidebar, 300);
-                        }
-                    };
-                    listContainer.appendChild(listItem);
+                    // 3. SIDEBAR HTML: Add each event separately to the sidebar list
+                    loc.events.forEach(event => {
+                        const mainVariant = event.variants[0];
+                        const dateHtml = formatFutureDate(mainVariant.date);
+                        
+                        const listItem = document.createElement('li');
+                        listItem.className = "route-item";
+                        listItem.innerHTML = `
+                            <strong>${event.event_name}</strong><br>
+                            <small>${event.variants.length} distance options | ${mainVariant.distance_km}km base</small> ${dateHtml}`;
+                        
+                        listItem.onclick = () => {
+                            map.setView(loc.coords, 14);
+                            marker.openPopup();
+                        };
+                        listContainer.appendChild(listItem);
                 });
                 const params = new URLSearchParams(window.location.search);
                 const routeId = params.get('info');
@@ -260,9 +280,9 @@
                     const target = allLocations.find(l => l.gpx.replace('.gpx', '') === routeId);
                     if (target) loadRoute(target, true);
                 }
+                });
             })
             .catch(error => console.error('Error loading map data:', error));
-
     </script>
 </body>
 </html>

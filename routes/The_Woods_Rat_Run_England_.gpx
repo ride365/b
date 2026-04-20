@@ -13,6 +13,9 @@
   <name>The Woods Rat Run</name>
   <link href="https://www.strava.com/routes/3479181018858355718"/>
   <type>cycling</type>
+    <extensions>
+      <surface>gravel</surface> <!-- Examples: asphalt, gravel, dirt, ground, paved, unpaved -->
+  </extensions>
     <trkseg>
       <trkpt lat="50.87239" lon="-1.57371">
         <ele>40.9</ele>

@@ -1,15 +1,14 @@
 import gpxpy
 import json
 import os
+import re
+from collections import defaultdict
 
 def generate_gpx_json():
     routes_dir = 'routes'
     output_file = 'routes.json'
-    results = []
-
-    if not os.path.exists(routes_dir):
-        print(f"Error: Folder '{routes_dir}' not found.")
-        return
+    clusters = defaultdict(lambda: defaultdict(list))
+    grid_step = 0.00225 
 
     for filename in os.listdir(routes_dir):
         if filename.lower().endswith('.gpx'):
@@ -17,43 +16,59 @@ def generate_gpx_json():
             try:
                 with open(filepath, 'r') as f:
                     gpx = gpxpy.parse(f)
+                    if not (gpx.tracks and gpx.tracks[0].segments): continue
                     
-                    if gpx.tracks and gpx.tracks[0].segments:
-                        track = gpx.tracks[0]
-                        first_point = track.segments[0].points[0]
-                        
-                        # Distance calculation (3D accounts for elevation changes)
-                        distance_meters = track.length_3d()
-                        
-                        # Elevation Gain (Total Uphill)
-                        uphill, downhill = track.get_uphill_downhill()
-                        
-                        # Link extraction
-                        author_website = gpx.author_link if gpx.author_link else ""
-                        route_link = track.link if track.link else ""
+                    track = gpx.tracks[0]
+                    start = track.segments[0].points[0]
+                    display_name = track.name or filename.replace('.gpx', '')
 
-                        results.append({
-                            "name": track.name or gpx.name or filename.replace('.gpx', ''),
-                            "author": gpx.author_name or "",
-                            "author_website": author_website,
-                            "description": gpx.description or "",
-                            "link": gpx.link if gpx.link else "",
-                            "route_link": route_link,
-                            "date": gpx.time.strftime("%Y-%m-%d") if gpx.time else None,
-                            "type": track.type or "cycling",
-                            "coords": [first_point.latitude, first_point.longitude],
-                            "distance_km": round(distance_meters / 1000, 2),
-                            "elevation_gain_m": round(uphill, 0),
-                            "gpx": filename
-                        })
-                        print(f"Processed: {filename} ({round(distance_meters/1000, 1)}km)")
+                    # --- CLEANING THE NAMES ---
+                    # This splits into: [Base Name, Variant Name]
+                    # E.g. "Stone Circle - 100km" -> ["Stone Circle", "100km"]
+                    parts = re.split(r' - | \(', display_name, 1)
+                    base_name = parts[0].strip()
+                    
+                    # If there's a second part, clean up the trailing bracket if it exists
+                    if len(parts) > 1:
+                        variant_label = parts[1].replace(')', '').strip()
+                    else:
+                        variant_label = display_name
+
+                    # 250m Proximity Snapping
+                    snap_lat = round(start.latitude / grid_step) * grid_step
+                    snap_lon = round(start.longitude / grid_step) * grid_step
+                    loc_key = f"{snap_lat:.5f},{snap_lon:.5f}"
+
+                    clusters[loc_key][base_name].append({
+                        "variant_label": variant_label, # Now just "100km" or "Epic"
+                        "distance_km": round(track.length_3d() / 1000, 2),
+                        "elevation_gain_m": round(track.get_uphill_downhill()[0], 0),
+                        "author": gpx.author_name or "",
+                        "author_website": gpx.author_link if gpx.author_link else "",
+                        "description": gpx.description or "",
+                        "strava_link": track.link if track.link else "",
+                        "original_route": gpx.link if gpx.link else "",
+                        "activity_type": track.type or "cycling",
+                        "date": gpx.time.strftime("%Y-%m-%d") if gpx.time else None,
+                        "surface": next((ext.text for ext in track.extensions if 'surface' in ext.tag), "unknown"),
+                        "gpx": filename
+                    })
+                    print(f"Processed: {filename}")
             except Exception as e:
                 print(f"Could not process {filename}: {e}")
 
+    # Build final JSON
+    final_output = []
+    for loc_key, events_dict in clusters.items():
+        coords = [float(x) for x in loc_key.split(',')]
+        event_list = []
+        for name, variants in events_dict.items():
+            variants.sort(key=lambda x: x['distance_km'])
+            event_list.append({"event_name": name, "variants": variants})
+        final_output.append({"coords": coords, "events": event_list})
+
     with open(output_file, 'w') as f:
-        json.dump(results, f, indent=4)
-    
-    print(f"\nSuccess! {len(results)} routes saved to {output_file}")
+        json.dump(final_output, f, indent=4)
 
 if __name__ == '__main__':
     generate_gpx_json()

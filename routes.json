@@ -749,6 +749,34 @@
     },
     {
         "coords": [
+            51.50025,
+            -3.204
+        ],
+        "events": [
+            {
+                "event_name": "Tro Bro Aeron",
+                "distance_range": "300.99km",
+                "variants": [
+                    {
+                        "variant_label": "Tro Bro Aeron",
+                        "distance_km": 300.99,
+                        "elevation_gain_m": 3615.0,
+                        "author": "Cymru Randonneurs",
+                        "author_website": "https://www.audax.uk/event-details?id=13722",
+                        "description": " 300Km event from Cardiff, an early morning start over the hills following the drovers trail to the sea side by lunch witha scenic return to the capital via y barcud coch.",
+                        "strava_link": "",
+                        "original_route": "https://ridewithgps.com/routes/39297388",
+                        "activity_type": "cycling",
+                        "date": "2026-07-11",
+                        "surface": "paved",
+                        "gpx": "Tro_Bro_Aeron.gpx"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "coords": [
             50.706,
             -1.50075
         ],

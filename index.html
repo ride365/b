@@ -249,10 +249,10 @@
                                 <div style="margin-top:4px;">
                                     <a href="#" onclick="loadRouteByGpx('${v.gpx}'); return false;" style="text-decoration:none;">
                                         🏃 ${v.variant_label} (${v.distance_km}km)
-                                    </a>
+                                    </a> ${dateHtml}
                                 </div>`;
                         });
-                        popupHtml += `${dateHtml} </div>`;
+                        popupHtml += `</div>`;
                     });
                     popupHtml += `</div>`;
                     marker.bindPopup(popupHtml);

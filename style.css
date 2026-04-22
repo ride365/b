@@ -62,24 +62,6 @@ body, html {
     font-weight: bold;
 }
 
-.custom-pin {
-    background-color: #e74c3c; /* Red */
-    border-radius: 50% 50% 50% 0;
-    width: 30px;
-    height: 30px;
-    transform: rotate(-45deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #c0392b;
-}
-
-.custom-pin i {
-    color: white;
-    transform: rotate(45deg); /* Un-rotate the icon */
-    font-size: 18px;
-}
-
 .filter-controls {
     padding-bottom: 15px;
     border-bottom: 1px solid #ddd;
@@ -120,5 +102,5 @@ ion-icon {
 }
 
 .leaflet-popup-content .event-date {
-        float: right;
+    float: right;
 }

@@ -63,9 +63,9 @@
             iconAnchor: [size / 2, size]
         });
 
-        const markerIcon = createIcon('location-sharp', '#6F2DA8', 32);
-        const startIcon  = createIcon('pin-sharp', 'green', 32);
-        const endIcon    = createIcon('pin-sharp',      'red', 32);
+        const markerIcon = createIcon('location-sharp', '#6F2DA8', 25);
+        const startIcon  = createIcon('pin-sharp', 'green', 16);
+        const endIcon    = createIcon('pin-sharp',      'red', 16);
         const alertIcon  = createIcon('alert-circle',  'grey', 16);
 
         const zoomToTrack = (track) => {
@@ -249,10 +249,10 @@
                                 <div style="margin-top:4px;">
                                     <a href="#" onclick="loadRouteByGpx('${v.gpx}'); return false;" style="text-decoration:none;">
                                         🏃 ${v.variant_label} (${v.distance_km}km)
-                                    </a> ${dateHtml}
+                                    </a>
                                 </div>`;
                         });
-                        popupHtml += `</div>`;
+                        popupHtml += `${dateHtml} </div>`;
                     });
                     popupHtml += `</div>`;
                     marker.bindPopup(popupHtml);

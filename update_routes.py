@@ -39,9 +39,12 @@ def generate_gpx_json():
                     snap_lon = round(start.longitude / grid_step) * grid_step
                     loc_key = f"{snap_lat:.5f},{snap_lon:.5f}"
 
+                    distance_km = track.length_3d() / 1000
+
                     clusters[loc_key][base_name].append({
                         "variant_label": variant_label, # Now just "100km" or "Epic"
-                        "distance_km": round(track.length_3d() / 1000, 2),
+                        "distance_km": round(distance_km, 2),
+                        "is_placeholder": distance_km < 1.0, # Mark as placeholder if less than 1km
                         "elevation_gain_m": round(track.get_uphill_downhill()[0], 0),
                         "author": gpx.author_name or "",
                         "author_website": gpx.author_link if gpx.author_link else "",

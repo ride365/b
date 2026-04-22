@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="StravaGPX" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <metadata>
+  <name>REBOUND</name>
+  <author>
+   <name>Rebound.cc</name>
+   <link href="https://rebound.cc"/>
+  </author>
+  <desc>REBOUND is reserved for all cyclists. This event will take place on May 30th, 2026, starting from any desired point, over a distance of 15 miles (25 km), 25 miles (40 km), 50 miles (80 km), 100 miles (160 km) or, traditionally the distance to go for, 200 miles (320 km). Those who need more can do the XL distance of 350 miles (570 km).</desc>
+  <time>2026-05-30T06:00:00Z</time>
+ </metadata>
+ <trk>
+  <name>REBOUND</name>
+  <type>cycling</type>
+  <extensions>
+      <surface>gravel</surface> <!-- Examples: asphalt, gravel, dirt, ground, paved, unpaved -->
+  </extensions>
+    <trkseg>
+    <trkpt lat="50.9401" lon="-2.5601">
+    </trkpt>
+   <trkpt lat="50.9402" lon="-2.5602">
+   </trkpt>
+  </trkseg>
+ </trk>
+</gpx>

@@ -12,6 +12,7 @@
                     {
                         "variant_label": "Haldon Heroic Mega",
                         "distance_km": 91.6,
+                        "is_placeholder": false,
                         "elevation_gain_m": 1648.0,
                         "author": "Sportiva Events",
                         "author_website": "https://sportive.com/event/haldon-heroic/",
@@ -40,6 +41,7 @@
                     {
                         "variant_label": "King Alfred's Way",
                         "distance_km": 353.47,
+                        "is_placeholder": false,
                         "elevation_gain_m": 4198.0,
                         "author": "Cycling UK",
                         "author_website": "https://www.cyclinguk.org/routes/long-distance/king-alfreds-way",
@@ -68,6 +70,7 @@
                     {
                         "variant_label": "The Old Chalk Way",
                         "distance_km": 574.61,
+                        "is_placeholder": false,
                         "elevation_gain_m": 5294.0,
                         "author": "",
                         "author_website": "",
@@ -96,6 +99,7 @@
                     {
                         "variant_label": "Tour of the Hills",
                         "distance_km": 120.35,
+                        "is_placeholder": false,
                         "elevation_gain_m": 2175.0,
                         "author": "West Surrey Cycling Club",
                         "author_website": "https://www.audax.uk/event-details?id=14064",
@@ -124,6 +128,7 @@
                     {
                         "variant_label": "Lost Lanes 06: The Thrills of the Chase",
                         "distance_km": 102.81,
+                        "is_placeholder": false,
                         "elevation_gain_m": 1269.0,
                         "author": "Lost Lanes",
                         "author_website": "https://lostlanes.co.uk",
@@ -152,6 +157,7 @@
                     {
                         "variant_label": "The Westcountry Way",
                         "distance_km": 187.19,
+                        "is_placeholder": false,
                         "elevation_gain_m": 3918.0,
                         "author": "",
                         "author_website": "",
@@ -180,6 +186,7 @@
                     {
                         "variant_label": "The Headstock 200",
                         "distance_km": 208.4,
+                        "is_placeholder": false,
                         "elevation_gain_m": 4323.0,
                         "author": "",
                         "author_website": "",
@@ -208,6 +215,7 @@
                     {
                         "variant_label": "The Woods Rat Run",
                         "distance_km": 256.3,
+                        "is_placeholder": false,
                         "elevation_gain_m": 2445.0,
                         "author": "The Woods Cyclery",
                         "author_website": "https://thewoodscyclery.co.uk/pages/the-rat-run",
@@ -236,6 +244,7 @@
                     {
                         "variant_label": "West Kernow Way",
                         "distance_km": 240.62,
+                        "is_placeholder": false,
                         "elevation_gain_m": 0.0,
                         "author": "",
                         "author_website": "",
@@ -264,6 +273,7 @@
                     {
                         "variant_label": "v65km",
                         "distance_km": 67.02,
+                        "is_placeholder": false,
                         "elevation_gain_m": 1205.0,
                         "author": "Dirty Reiver",
                         "author_website": "https://dirtyreiver.co.uk/",
@@ -278,6 +288,7 @@
                     {
                         "variant_label": "v130km",
                         "distance_km": 130.38,
+                        "is_placeholder": false,
                         "elevation_gain_m": 2184.0,
                         "author": "Dirty Reiver",
                         "author_website": "https://dirtyreiver.co.uk/",
@@ -292,6 +303,7 @@
                     {
                         "variant_label": "v200km",
                         "distance_km": 196.29,
+                        "is_placeholder": false,
                         "elevation_gain_m": 3414.0,
                         "author": "Dirty Reiver",
                         "author_website": "https://dirtyreiver.co.uk/",
@@ -320,6 +332,7 @@
                     {
                         "variant_label": "The Fawn (Short Route",
                         "distance_km": 53.71,
+                        "is_placeholder": false,
                         "elevation_gain_m": 926.0,
                         "author": "",
                         "author_website": "",
@@ -334,6 +347,7 @@
                     {
                         "variant_label": "UCI Gravel World Series",
                         "distance_km": 110.96,
+                        "is_placeholder": false,
                         "elevation_gain_m": 1905.0,
                         "author": "",
                         "author_website": "",
@@ -348,6 +362,7 @@
                     {
                         "variant_label": "Ultra",
                         "distance_km": 323.68,
+                        "is_placeholder": false,
                         "elevation_gain_m": 5510.0,
                         "author": "",
                         "author_website": "",
@@ -376,6 +391,7 @@
                     {
                         "variant_label": "100km",
                         "distance_km": 96.78,
+                        "is_placeholder": false,
                         "elevation_gain_m": 1068.0,
                         "author": "Glorious Gravel",
                         "author_website": "https://gloriousgravel.com/product/gravel-sportives/the-centurion/",
@@ -390,6 +406,7 @@
                     {
                         "variant_label": "Full Route",
                         "distance_km": 208.18,
+                        "is_placeholder": false,
                         "elevation_gain_m": 2404.0,
                         "author": "Glorious Gravel",
                         "author_website": "https://gloriousgravel.com/product/gravel-sportives/the-centurion/",
@@ -418,6 +435,7 @@
                     {
                         "variant_label": "The Dorset Coast 200km Audax",
                         "distance_km": 206.12,
+                        "is_placeholder": false,
                         "elevation_gain_m": 2871.0,
                         "author": "Wessex Super Randonneurs",
                         "author_website": "https://wessexsr.org.uk/DC.HTML",
@@ -446,6 +464,7 @@
                     {
                         "variant_label": "Wessex Gravel Epic 60",
                         "distance_km": 96.81,
+                        "is_placeholder": false,
                         "elevation_gain_m": 1323.0,
                         "author": "",
                         "author_website": "",
@@ -474,6 +493,7 @@
                     {
                         "variant_label": "Grand Old Dukes",
                         "distance_km": 179.18,
+                        "is_placeholder": false,
                         "elevation_gain_m": 3754.0,
                         "author": "Gravelfoyle Events",
                         "author_website": "https://www.dukesweekender.com/god",
@@ -502,6 +522,7 @@
                     {
                         "variant_label": "Cantii Way",
                         "distance_km": 235.13,
+                        "is_placeholder": false,
                         "elevation_gain_m": 1648.0,
                         "author": "Cycling UK",
                         "author_website": "https://www.cyclinguk.org/routes/long-distance/cantii-way",
@@ -530,6 +551,7 @@
                     {
                         "variant_label": "Moor 2 Moor",
                         "distance_km": 201.84,
+                        "is_placeholder": false,
                         "elevation_gain_m": 3079.0,
                         "author": "Launceston Cycles",
                         "author_website": "https://launcestoncycles.co.uk/product/2026-sportive/",
@@ -558,6 +580,7 @@
                     {
                         "variant_label": "Devon Grit",
                         "distance_km": 112.0,
+                        "is_placeholder": false,
                         "elevation_gain_m": 2055.0,
                         "author": "Sportiva Events",
                         "author_website": "https://sportivaevents.clubtrac.co.uk/e/devon-grit-3114",
@@ -586,6 +609,7 @@
                     {
                         "variant_label": "The Bristol Rally",
                         "distance_km": 305.25,
+                        "is_placeholder": false,
                         "elevation_gain_m": 2952.0,
                         "author": "All Terre Adventures",
                         "author_website": "https://allterre.net/the-bristol-rally",
@@ -614,6 +638,7 @@
                     {
                         "variant_label": "Great Dorset Bike Ride",
                         "distance_km": 78.34,
+                        "is_placeholder": false,
                         "elevation_gain_m": 15.0,
                         "author": "West Dorset Cycling",
                         "author_website": "https://gdbr.dorsetdirt.co.uk",
@@ -634,6 +659,7 @@
                     {
                         "variant_label": "Dorset Dirt",
                         "distance_km": 50.47,
+                        "is_placeholder": false,
                         "elevation_gain_m": 817.0,
                         "author": "West Dorset Cycling",
                         "author_website": "https://www.dorsetdirt.co.uk",
@@ -662,6 +688,7 @@
                     {
                         "variant_label": "The Rebel",
                         "distance_km": 136.56,
+                        "is_placeholder": false,
                         "elevation_gain_m": 1687.0,
                         "author": "",
                         "author_website": "",
@@ -676,6 +703,7 @@
                     {
                         "variant_label": "The Bastard",
                         "distance_km": 219.05,
+                        "is_placeholder": false,
                         "elevation_gain_m": 3049.0,
                         "author": "",
                         "author_website": "",
@@ -704,6 +732,7 @@
                     {
                         "variant_label": "Marcher Castles Way",
                         "distance_km": 289.65,
+                        "is_placeholder": false,
                         "elevation_gain_m": 0.0,
                         "author": "Cycling UK",
                         "author_website": "https://www.cyclinguk.org/routes/long-distance/marcher-castles-way",
@@ -732,6 +761,7 @@
                     {
                         "variant_label": "Dorset Gravel Dash",
                         "distance_km": 163.34,
+                        "is_placeholder": false,
                         "elevation_gain_m": 2797.0,
                         "author": "Dorset Gravel Dash",
                         "author_website": "https://dorsetgraveldash.co.uk/",
@@ -742,6 +772,35 @@
                         "date": "2026-05-23",
                         "surface": "gravel",
                         "gpx": "Dorset_Gravel_Dash.gpx"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "coords": [
+            50.94,
+            -2.5605
+        ],
+        "events": [
+            {
+                "event_name": "REBOUND",
+                "distance_range": "0.01km",
+                "variants": [
+                    {
+                        "variant_label": "REBOUND",
+                        "distance_km": 0.01,
+                        "is_placeholder": true,
+                        "elevation_gain_m": 0.0,
+                        "author": "Rebound.cc",
+                        "author_website": "https://rebound.cc",
+                        "description": "REBOUND is reserved for all cyclists. This event will take place on May 30th, 2026, starting from any desired point, over a distance of 15 miles (25 km), 25 miles (40 km), 50 miles (80 km), 100 miles (160 km) or, traditionally the distance to go for, 200 miles (320 km). Those who need more can do the XL distance of 350 miles (570 km).",
+                        "strava_link": "",
+                        "original_route": "",
+                        "activity_type": "cycling",
+                        "date": "2026-05-30",
+                        "surface": "gravel",
+                        "gpx": "Rebound_Gravel.gpx"
                     }
                 ]
             }
@@ -760,6 +819,7 @@
                     {
                         "variant_label": "Tro Bro Aeron",
                         "distance_km": 300.99,
+                        "is_placeholder": false,
                         "elevation_gain_m": 3615.0,
                         "author": "Cymru Randonneurs",
                         "author_website": "https://www.audax.uk/event-details?id=13722",
@@ -788,6 +848,7 @@
                     {
                         "variant_label": "Isle of Wight Randonnee",
                         "distance_km": 106.88,
+                        "is_placeholder": false,
                         "elevation_gain_m": 1408.0,
                         "author": "Mountbatten Isle of Wight",
                         "author_website": "https://www.mountbatten.org.uk/randonnee2026",
@@ -816,6 +877,7 @@
                     {
                         "variant_label": "Royal Chilterns Way",
                         "distance_km": 280.44,
+                        "is_placeholder": false,
                         "elevation_gain_m": 3238.0,
                         "author": "Cycling UK",
                         "author_website": "https://www.cyclinguk.org/routes/long-distance/royal-chilterns-way",
@@ -844,6 +906,7 @@
                     {
                         "variant_label": "Trans Devon",
                         "distance_km": 348.98,
+                        "is_placeholder": false,
                         "elevation_gain_m": 5380.0,
                         "author": "Rockets & Rascals",
                         "author_website": "https://bikepacking.com/event/trans-devon-2020/",
@@ -872,6 +935,7 @@
                     {
                         "variant_label": "East Devon Trail",
                         "distance_km": 182.03,
+                        "is_placeholder": false,
                         "elevation_gain_m": 2435.0,
                         "author": "East Devon Trail",
                         "author_website": "https://eastdevontrail.com/",

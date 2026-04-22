@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="StravaGPX" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <metadata>
+  <name>Title</name>
+  <author>
+   <name>Author</name>
+   <link href="https://author.website"/>
+  </author>
+  <desc>Description</desc>
+  <link href="https://www.strava.com/routes/source_link"/>
+  <time>2023-08-23T09:00:00Z</time>
+ </metadata>
+ <trk>
+  <name>Title</name>
+  <link href="https://www.strava.com/routes/"/>
+  <type>cycling</type>
+  <extensions>
+      <surface>paved</surface> <!-- Examples: asphalt, gravel, dirt, ground, paved, unpaved -->
+  </extensions>

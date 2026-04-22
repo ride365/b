@@ -1,0 +1,25 @@
+ <metadata>
+  <name>Title</name>
+  <author>
+   <name>Author</name>
+   <link href="https://author.website"/>
+  </author>
+  <desc>Description</desc>
+  <link href="https://www.strava.com/routes/source_link"/>
+  <time>2023-08-23T09:00:00Z</time>
+ </metadata>
+ <trk>
+  <name>Title</name>
+  <link href="https://www.strava.com/routes/"/>
+  <type>cycling</type>
+  <extensions>
+      <surface>paved</surface> <!-- Examples: asphalt, gravel, dirt, ground, paved, unpaved -->
+  </extensions>
+    <trkseg>
+    <trkpt lat="50.71535" lon="-2.4424300000000003">
+    </trkpt>
+   <trkpt lat="50.71535" lon="-2.44267">
+   </trkpt>
+  </trkseg>
+ </trk>
+</gpx>

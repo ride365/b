@@ -750,6 +750,35 @@
     },
     {
         "coords": [
+            45.648,
+            11.78325
+        ],
+        "events": [
+            {
+                "event_name": "Veneto Trail 2026",
+                "distance_range": "467.3km",
+                "variants": [
+                    {
+                        "variant_label": "Veneto Trail 2026",
+                        "distance_km": 467.3,
+                        "is_placeholder": false,
+                        "elevation_gain_m": 11226.0,
+                        "author": "Veneto Trail",
+                        "author_website": "https://venetotrail.eu/en/",
+                        "description": "The Veneto Trail follows trails, gravel roads, and quiet paved roads from the Po Valley to the Dolomites, covering about 500 km and 10,000 m of positive elevation gain. The route changes every year. The start and finish are in Cittadella (PD).",
+                        "strava_link": "",
+                        "original_route": "https://ridewithgps.com/routes/55777063",
+                        "activity_type": "cycling",
+                        "date": "2026-06-22",
+                        "surface": "gravel",
+                        "gpx": "Veneto_Trail_2026.gpx"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "coords": [
             50.598,
             -2.03625
         ],
